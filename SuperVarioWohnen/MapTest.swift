@@ -9,16 +9,22 @@
 import UIKit
 import MapKit
 import CoreLocation
-class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMapViewDelegate,MKLocalSearchCompleterDelegate {
+class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMapViewDelegate,UIGestureRecognizerDelegate, MKLocalSearchCompleterDelegate{
 
 
     @IBOutlet var naviCon: UINavigationItem!
     let searchBar = UISearchBar()
     @IBOutlet weak var mapView: MKMapView!
     var myLocation:CLLocation!
-    
+    var test:MKOverlay!
+    let annotation = MKPointAnnotation()
+    let pointAnnotation = MKPointAnnotation()
     var searchMode:Bool!
 
+    var searchCompleter = MKLocalSearchCompleter()
+    var searchResults = [MKLocalSearchCompletion]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +33,35 @@ class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,M
         naviCon?.titleView = searchBar
         searchBar.delegate = self
         searchMode=true
- }
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        gestureRecognizer.delegate = self
+        mapView.addGestureRecognizer(gestureRecognizer)
+        
+        searchCompleter.delegate = self
+        mapView.showsPointsOfInterest=false
+        
+        
+        
+    }
+    
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotation(pointAnnotation)
+        if(annotation.coordinate.latitude != 0.0 && annotation.coordinate.longitude != 0.0){
+            mapView.removeAnnotation(annotation)
+        }
+        
+        let location = sender.location(in: mapView)
+        let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
+        
+        // Add annotation:
+        
+        annotation.coordinate = coordinate
+        annotation.title = "Auswahl"
+        mapView.addAnnotation(annotation)
+    }
     
     
     let regionRadius: CLLocationDistance = 1000
@@ -59,10 +93,28 @@ class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,M
 
     
     @IBAction func route(_ sender: UIBarButtonItem) {
+        
+        if(annotation.coordinate.latitude != 0.0 && annotation.coordinate.longitude != 0.0){
+            searchBar.text = annotation.title
+        }
+        
         searchMode=false
         searchBar.placeholder="Route..."
+        
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCompleter.queryFragment = searchText
+    }
+    
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        print(searchResults)
+    }
+    
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // handle error
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         
@@ -70,7 +122,7 @@ class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,M
         request.naturalLanguageQuery = searchBar.text
         request.region = mapView.region
         let search = MKLocalSearch(request: request)
-        let pointAnnotation = MKPointAnnotation()
+
         search.start { (response: MKLocalSearchResponse!, error: Error?) in
            /* let items = response.mapItems
 
@@ -89,14 +141,20 @@ class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,M
             
 
             
-            pointAnnotation.title = searchBar.text
-            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude:response!.boundingRegion.center.latitude, longitude: response!.boundingRegion.center.longitude)
-            self.mapView.addAnnotation(pointAnnotation)
+            self.pointAnnotation.title = searchBar.text
+            self.pointAnnotation.coordinate = CLLocationCoordinate2D(latitude:response!.boundingRegion.center.latitude, longitude: response!.boundingRegion.center.longitude)
+            self.mapView.addAnnotation(self.pointAnnotation)
             if(self.searchMode){
-                self.mapView.setRegion(MKCoordinateRegionMake(pointAnnotation.coordinate, MKCoordinateSpanMake(0.2,0.2)), animated: true)
+                self.mapView.setRegion(MKCoordinateRegionMake(self.pointAnnotation.coordinate, MKCoordinateSpanMake(0.2,0.2)), animated: true)
             }
             else{
-                self.routeShow(pointAnnotation: pointAnnotation)
+                
+                if(self.annotation.coordinate.latitude != 0.0 && self.annotation.coordinate.longitude != 0.0 && (self.searchBar.text == "Auswahl")){
+                    self.routeShow(pointAnnotation: self.annotation)
+                }
+                else{
+                    self.routeShow(pointAnnotation: self.pointAnnotation)
+                }
             }
             
         }
@@ -138,6 +196,8 @@ class MapTest: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,M
         directionsRequest.destination = MKMapItem(placemark: target)
         
         directionsRequest.transportType = MKDirectionsTransportType.automobile
+        
+        
         
         let directions = MKDirections(request: directionsRequest)
         
