@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EBAB5742007B9580047CD7A /* KontakteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBAB5732007B9580047CD7A /* KontakteViewController.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
 		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EBAB5732007B9580047CD7A /* KontakteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontakteViewController.swift; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EBAB5752007BDD60047CD7A /* Kontakte */ = {
+			isa = PBXGroup;
+			children = (
+				5EBAB5732007B9580047CD7A /* KontakteViewController.swift */,
+			);
+			path = Kontakte;
+			sourceTree = "<group>";
+		};
 		F64615DD1FA8790C007EB0A0 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		F64615E81FA8790C007EB0A0 /* SuperVarioWohnen */ = {
 			isa = PBXGroup;
 			children = (
+				5EBAB5752007BDD60047CD7A /* Kontakte */,
 				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
 				F64615EB1FA8790D007EB0A0 /* ViewController.swift */,
 				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBAB5742007B9580047CD7A /* KontakteViewController.swift in Sources */,
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
 			);
