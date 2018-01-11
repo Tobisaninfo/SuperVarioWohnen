@@ -20,7 +20,7 @@ class KontakteViewController: UIViewController {
     }
     
     @IBAction func call(_ sender: Any) {
-        let tel: URL = URL(string: "tel://1028464")!
+        let tel: URL = URL(string: "telprompt://015128780815")!
         UIApplication.shared.open(tel);
     }
     
