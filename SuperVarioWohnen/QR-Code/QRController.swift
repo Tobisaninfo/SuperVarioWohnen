@@ -1,5 +1,5 @@
 //
-//  BarcodeController.swift
+//  QRcodeController.swift
 //  CookNow
 //
 //  Created by Tobias on 01.07.17.
@@ -10,21 +10,21 @@ import UIKit
 import AVFoundation
 
 /**
- Protocoll to handle events from ```BarcodeController```.
+ Protocoll to handle events from ```QRcodeController```.
  */
-public protocol BarcodeControllerDelegate {
+public protocol QRcodeControllerDelegate {
     /**
-     This function is called, than a barcode is recognized. You have to call the method ```BarcodeController.finishReading(code:)``` to end up the recognition process.
-     - Parameter code: Barcode as String
+     This function is called, than a QRcode is recognized. You have to call the method ```QRcodeController.finishReading(code:)``` to end up the recognition process.
+     - Parameter code: QRcode as String
      - Parameter frame: Frame in camera view, there the code is recognized
      */
-    func barcodeDidDetect(code: String, frame: CGRect)
+    func QRcodeDidDetect(code: String, frame: CGRect)
 }
 
 /**
- An UIViewController for Barcode Recogition. This ViewController adds a ```AVCaptureVideoPreviewLayer``` on top of the view stack and starts an ```AVCaptureSession```.
+ An UIViewController for QRcode Recogition. This ViewController adds a ```AVCaptureVideoPreviewLayer``` on top of the view stack and starts an ```AVCaptureSession```.
  */
-public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+public class QRcodeController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     private var captureDevice: AVCaptureDevice?
     private var captureSession: AVCaptureSession?
@@ -35,9 +35,9 @@ public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjects
     // MARK: - Delegate
     
     /**
-     Delegate for the BarcodeController.
+     Delegate for the QRcodeController.
      */
-    public var delegate: BarcodeControllerDelegate?
+    public var delegate: QRcodeControllerDelegate?
     
     // MARK: - Properties
     
@@ -48,7 +48,7 @@ public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjects
     
     
     /**
-     Enable the devices tourch, if available.
+     Enable the devices torch, if available.
      */
     public var isTorchEnable: Bool = false {
         didSet {
@@ -132,7 +132,7 @@ public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjects
     private var processing: [String] = []
     
     /**
-     Handles the recognized barcodes.
+     Handles the recognized QRcodes.
      */
     public final func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if metadataObjects.count == 0 {
@@ -145,8 +145,7 @@ public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjects
                     if metadataObj.stringValue != nil {
                         if let code = metadataObj.stringValue, let bounds = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)?.bounds, !processing.contains(code) {
                             processing.append(code)
-                            delegate?.barcodeDidDetect(code: code, frame: bounds)
-                            
+                            delegate?.QRcodeDidDetect(code: code, frame: bounds)
                             if !allowMultipleMetadataObjects {
                                 break
                             }
@@ -158,8 +157,8 @@ public class BarcodeController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     /**
-     Mark barcode as finish.
-     - Parameter code: Barcode from the delegate method ```BarcodeControllerDelegate.barcodeDidDetect(code:frame:)```
+     Mark QRcode as finish.
+     - Parameter code: QRcode from the delegate method ```QRcodeControllerDelegate.QRcodeDidDetect(code:frame:)```
      */
     public func finishReding(code: String) {
         if let index = processing.index(of: code) {
