@@ -24,7 +24,7 @@ class ScannerViewController: QRcodeController, QRcodeControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        view.bringSubview(toFront: flashlightButton)
+        view.bringSubview(toFront: flashlightButton)        
     }
     
     func QRcodeDidDetect(code: String, frame: CGRect) {
