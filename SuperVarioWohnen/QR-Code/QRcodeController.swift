@@ -24,10 +24,9 @@ public protocol QRcodeControllerDelegate {
 /**
  An UIViewController for QRcode Recogition. This ViewController adds a ```AVCaptureVideoPreviewLayer``` on top of the view stack and starts an ```AVCaptureSession```.
  */
-public class QRcodeController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+public class QRcodeController: UIViewController {
     
-    private var captureDevice: AVCaptureDevice?
-    private var captureSession: AVCaptureSession?
+    private var captureSession = AVCaptureSession()
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
@@ -52,7 +51,7 @@ public class QRcodeController: UIViewController, AVCaptureMetadataOutputObjectsD
      */
     public var isTorchEnable: Bool = false {
         didSet {
-            if let captureDevice = self.captureDevice {
+            if let captureDevice = AVCaptureDevice.default(for: .video) {
                 if captureDevice.hasFlash && captureDevice.hasTorch {
                     do {
                         try captureDevice.lockForConfiguration()
@@ -79,82 +78,91 @@ public class QRcodeController: UIViewController, AVCaptureMetadataOutputObjectsD
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        guard let captureDevice = AVCaptureDevice.default(for: .video) else {
+            print("Failed to get the camera device")
+            return
+        }
         
-        // Configure Autofocus
         do {
-            try captureDevice?.lockForConfiguration()
-            captureDevice?.focusPointOfInterest = CGPoint(x: 0.5, y: 0.5)
-            captureDevice?.autoFocusRangeRestriction = .near
-            captureDevice?.focusMode = .continuousAutoFocus
-            captureDevice?.unlockForConfiguration()
+            try captureDevice.lockForConfiguration()
+            captureDevice.focusPointOfInterest = CGPoint(x: 0.5, y: 0.5)
+            captureDevice.autoFocusRangeRestriction = .near
+            captureDevice.focusMode = .continuousAutoFocus
+            captureDevice.unlockForConfiguration()
         } catch {
             print("Fail to set autofocus: \(error)")
         }
         
-        // Setup capture session and preview.
         do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+            let input = try AVCaptureDeviceInput(device: captureDevice)
             
-            captureSession = AVCaptureSession()
-            captureSession?.addInput(input)
+            // Set the input device on the capture session.
+            captureSession.addInput(input)
             
+            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
+            captureSession.addOutput(captureMetadataOutput)
+            
+            // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
+            //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
             
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
         } catch {
+            // If any error occurs, simply print it out and don't continue any more.
             print(error)
             return
         }
+        
+        // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPreviewLayer?.frame = view.layer.bounds
+        view.layer.addSublayer(videoPreviewLayer!)
+        
+        // Start video capture.
+        captureSession.startRunning()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
         // Start video capture.
-        captureSession?.startRunning()
     }
     
     override public func viewDidDisappear(_ animated: Bool) {
-        captureSession?.stopRunning()
     }
     
     override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - AVCaptureMetadataOutputObjectsDelegate Methods
-    
     private var processing: [String] = []
+}
+
+extension QRcodeController: AVCaptureMetadataOutputObjectsDelegate {
     
     /**
      Handles the recognized QRcodes.
      */
-    public final func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
             return
         }
         
-        for obj in metadataObjects {
-            if let metadataObj = obj as? AVMetadataMachineReadableCodeObject {
-                if supportedCodeTypes.contains(metadataObj.type) {
-                    if metadataObj.stringValue != nil {
-                        if let code = metadataObj.stringValue, let bounds = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)?.bounds, !processing.contains(code) {
-                            processing.append(code)
-                            delegate?.QRcodeDidDetect(code: code, frame: bounds)
-                            if !allowMultipleMetadataObjects {
-                                break
-                            }
-                        }
-                    }
-                }
+        // Get the metadata object.
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if supportedCodeTypes.contains(metadataObj.type) {
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            if let code = metadataObj.stringValue, let bounds = barCodeObject?.bounds, !processing.contains(code) {
+                processing.append(code)
+                print(code)
+                delegate?.QRcodeDidDetect(code: code, frame: bounds)
             }
         }
     }
+    
     
     /**
      Mark QRcode as finish.

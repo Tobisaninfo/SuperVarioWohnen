@@ -102,7 +102,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Flash"/>
                                 <connections>
-                                    <action selector="flashlightHandler:" destination="8rs-cD-jno" eventType="touchUpInside" id="u9T-za-mm7"/>
+                                    <action selector="flashlightHandler:" destination="8rs-cD-jno" eventType="touchUpInside" id="3UB-fd-3qf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,7 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="GSz-yQ-o0B"/>
                     </view>
                     <connections>
-                        <outlet property="flashlightButton" destination="JMu-7N-NNw" id="a8c-Rs-AUv"/>
+                        <outlet property="flashlightButton" destination="JMu-7N-NNw" id="5CC-Sf-xAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEK-gN-h33" userLabel="First Responder" sceneMemberID="firstResponder"/>
