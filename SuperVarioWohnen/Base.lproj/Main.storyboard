@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="660" y="1039"/>
         </scene>
-        <!--Map Test-->
+        <!--Map-->
         <scene sceneID="bSC-Zr-ztD">
             <objects>
-                <viewController id="buc-jg-PEj" customClass="MapTest" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="buc-jg-PEj" customClass="Map" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UE4-Ud-zhh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,6 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="MapView" destination="wMl-aZ-4NY" id="c6Q-rC-tPd"/>
                         <outlet property="mapView" destination="wMl-aZ-4NY" id="y3a-aQ-Tsi"/>
                         <outlet property="naviCon" destination="bcw-n6-dsX" id="cU1-qw-v2I"/>
                     </connections>

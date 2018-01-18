@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B84F17851FCEBDEE00B39430 /* MapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F17841FCEBDEE00B39430 /* MapTest.swift */; };
+		B84F17851FCEBDEE00B39430 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F17841FCEBDEE00B39430 /* Map.swift */; };
 		B84F17871FCECFF600B39430 /* MarkPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F17861FCECFF600B39430 /* MarkPoints.swift */; };
 		B8C22FB61FD9C93B0002A5CC /* documents.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF31FD9B82C0077B2E9 /* documents.png */; };
 		B8C22FB71FD9C93D0002A5CC /* forum.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF41FD9B82C0077B2E9 /* forum.png */; };
@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B84F17841FCEBDEE00B39430 /* MapTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTest.swift; sourceTree = "<group>"; };
+		B84F17841FCEBDEE00B39430 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		B84F17861FCECFF600B39430 /* MarkPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkPoints.swift; sourceTree = "<group>"; };
 		B8D33B6D1FC74B6800F2C6EB /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		B8F16EF11FD9B82C0077B2E9 /* blackboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackboard.png; path = SuperVarioWohnen/Icons/blackboard.png; sourceTree = SOURCE_ROOT; };
@@ -136,7 +136,7 @@
 				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
 				F64615F51FA8790D007EB0A0 /* Info.plist */,
 				B8D33B6D1FC74B6800F2C6EB /* DocumentController.swift */,
-				B84F17841FCEBDEE00B39430 /* MapTest.swift */,
+				B84F17841FCEBDEE00B39430 /* Map.swift */,
 				B84F17861FCECFF600B39430 /* MarkPoints.swift */,
 			);
 			path = SuperVarioWohnen;
@@ -301,7 +301,7 @@
 			files = (
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
-				B84F17851FCEBDEE00B39430 /* MapTest.swift in Sources */,
+				B84F17851FCEBDEE00B39430 /* Map.swift in Sources */,
 				B8D33B6E1FC74B6800F2C6EB /* DocumentController.swift in Sources */,
 				B84F17871FCECFF600B39430 /* MarkPoints.swift in Sources */,
 			);
