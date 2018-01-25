@@ -39,7 +39,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         mapView.delegate=self
         initTableView()
         initGesture()
-
+        initPopupView()
         searchBar.showsCancelButton=true
         searchCompleter.delegate = self
         searchBar.delegate = self
@@ -69,9 +69,25 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         tableView.dataSource = self
         tableView.delegate = self
+        
+       
     }
     
-
+    func initPopupView(){
+        let screen = UIScreen.main
+        let height = screen.bounds.size.height
+        let width = screen.bounds.size.width
+        popupView.frame.size.height = popupView.frame.size.height-13
+        let popupHeight = popupView.frame.size.height
+        popupView.frame.size.width = width
+        
+        let tabHeight = tabBarController?.tabBar.frame.size.height
+        
+        let y = height-(popupHeight+tabHeight!)
+        popupView.frame.origin.y=y
+        
+        timeRoute.frame.size.width=width
+    }
     
     
     
@@ -103,7 +119,12 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         annotation.title = "Auswahl"
         mapView.addAnnotation(annotation)
         pointAnnotation=annotation
-        routeShow()
+        if(myLocation != nil){
+            routeShow()
+        }
+        else{
+            print("Kein Standort")
+        }
     }
     
     @objc func shortTap(sender: UITapGestureRecognizer) {
@@ -156,7 +177,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         else{
             searchMode=true
             searchBar.placeholder="Suchen..."
-            popupView.removeFromSuperview()
+            popupView.isHidden=true
         }
         if(searchBar.text != ""){
             searching()
@@ -199,6 +220,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
     
     
     func searching(){
+        self.searchBar.endEditing(true)
         tableView.removeFromSuperview()
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBar.text
@@ -211,8 +233,14 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
             if(self.searchMode){
                 self.mapView.setRegion(MKCoordinateRegionMake(self.pointAnnotation.coordinate, MKCoordinateSpanMake(0.2,0.2)), animated: true)
             }
+                
             else{
-                self.routeShow()
+                if(self.myLocation != nil){
+                    self.routeShow()
+                }
+                else{
+                    print("Kein Standort")
+                }
             }
         }
     }
@@ -272,7 +300,6 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
                 
                 for route in response!.routes {
                     self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-                    
                     self.dist=route.distance
                     self.time=route.expectedTravelTime
                     self.showTime()
