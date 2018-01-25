@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "loginSuccSeque", sender: self)
         }
         // Do any additional setup after loading the view.
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+        print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +30,13 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        let code: String? = defaults.string(forKey: "qr")
+        if(code != nil) {
+            self.performSegue(withIdentifier: "loginSuccSeque", sender: self)
+        }
+    }
 
     /*
     // MARK: - Navigation
