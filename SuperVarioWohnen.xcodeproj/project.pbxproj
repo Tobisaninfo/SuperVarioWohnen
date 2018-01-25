@@ -11,9 +11,6 @@
 		043C7E1D201A642600991192 /* DokumentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E19201A642500991192 /* DokumentCollectionViewCell.swift */; };
 		043C7E1E201A642600991192 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E1A201A642500991192 /* detailViewController.swift */; };
 		043C7E1F201A642600991192 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E1B201A642600991192 /* WebViewController.swift */; };
-		043C7E2C201A6A7600991192 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E29201A6A7500991192 /* AppDelegate.swift */; };
-		043C7E2D201A6A7600991192 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E2A201A6A7500991192 /* Image.swift */; };
-		043C7E2E201A6A7600991192 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043C7E2B201A6A7500991192 /* ViewController.swift */; };
 		5EA6FB682007D8E9009EC076 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB672007D8E9009EC076 /* ScannerViewController.swift */; };
 		5EA6FB6A2007D9B2009EC076 /* QRcodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB692007D9B2009EC076 /* QRcodeController.swift */; };
 		5EA6FB6C2007EAB0009EC076 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB6B2007EAB0009EC076 /* LoginViewController.swift */; };
@@ -46,10 +43,6 @@
 		043C7E19201A642500991192 /* DokumentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DokumentCollectionViewCell.swift; sourceTree = "<group>"; };
 		043C7E1A201A642500991192 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		043C7E1B201A642600991192 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		043C7E28201A6A7500991192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/Info.plist; sourceTree = "<absolute>"; };
-		043C7E29201A6A7500991192 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/AppDelegate.swift; sourceTree = "<absolute>"; };
-		043C7E2A201A6A7500991192 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Image.swift; path = /Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/Image.swift; sourceTree = "<absolute>"; };
-		043C7E2B201A6A7500991192 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/ViewController.swift; sourceTree = "<absolute>"; };
 		5EA6FB672007D8E9009EC076 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		5EA6FB692007D9B2009EC076 /* QRcodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeController.swift; sourceTree = "<group>"; };
 		5EA6FB6B2007EAB0009EC076 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,10 +117,6 @@
 		F64615E81FA8790C007EB0A0 /* SuperVarioWohnen */ = {
 			isa = PBXGroup;
 			children = (
-				043C7E29201A6A7500991192 /* AppDelegate.swift */,
-				043C7E2A201A6A7500991192 /* Image.swift */,
-				043C7E28201A6A7500991192 /* Info.plist */,
-				043C7E2B201A6A7500991192 /* ViewController.swift */,
 				5EA6FB662007D882009EC076 /* QR-Code */,
 				043C7E1A201A642500991192 /* detailViewController.swift */,
 				043C7E18201A642500991192 /* Document1CollectionViewCell.swift */,
@@ -293,9 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043C7E2E201A6A7600991192 /* ViewController.swift in Sources */,
-				043C7E2C201A6A7600991192 /* AppDelegate.swift in Sources */,
-				043C7E2D201A6A7600991192 /* Image.swift in Sources */,
 				043C7E1C201A642600991192 /* Document1CollectionViewCell.swift in Sources */,
 				043C7E1D201A642600991192 /* DokumentCollectionViewCell.swift in Sources */,
 				5EA6FB682007D8E9009EC076 /* ScannerViewController.swift in Sources */,
@@ -469,10 +455,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen3;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -484,10 +470,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen3;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
