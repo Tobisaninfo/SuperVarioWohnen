@@ -108,7 +108,7 @@ class ForumPostTableViewController: UITableViewController {
         if segue.identifier == "postDetails" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destinationViewController = segue.destination as! ForumAnswerTableViewController
-                destinationViewController.forumPost = forumPosts[indexPath.row]
+                destinationViewController.forumAnswer += [forumPosts[indexPath.row]]
             }
         }
     }

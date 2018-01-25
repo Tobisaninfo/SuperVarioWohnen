@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444CB7A7201A3BC900C27E9D /* NewReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CB7A6201A3BC900C27E9D /* NewReplyViewController.swift */; };
+		444CB7AD201A498F00C27E9D /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444CB7AC201A498F00C27E9D /* NewPostViewController.swift */; };
 		609306092008CBF700EAAE38 /* ForumAnswerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609306082008CBF700EAAE38 /* ForumAnswerTableViewController.swift */; };
 		6093060B2008CE2400EAAE38 /* ForumAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093060A2008CE2400EAAE38 /* ForumAnswerTableViewCell.swift */; };
 		89BC50F01FEB1A0E00714B3A /* ForumPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC50EF1FEB1A0E00714B3A /* ForumPost.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		444CB7A6201A3BC900C27E9D /* NewReplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReplyViewController.swift; sourceTree = "<group>"; };
+		444CB7AC201A498F00C27E9D /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		609306082008CBF700EAAE38 /* ForumAnswerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumAnswerTableViewController.swift; sourceTree = "<group>"; };
 		6093060A2008CE2400EAAE38 /* ForumAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		89BC50EF1FEB1A0E00714B3A /* ForumPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumPost.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				89FD01361FFD69E200E9C5C5 /* ForumPostTableViewController.swift */,
 				6093060A2008CE2400EAAE38 /* ForumAnswerTableViewCell.swift */,
 				609306082008CBF700EAAE38 /* ForumAnswerTableViewController.swift */,
+				444CB7AC201A498F00C27E9D /* NewPostViewController.swift */,
+				444CB7A6201A3BC900C27E9D /* NewReplyViewController.swift */,
 				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
 				F64615F01FA8790D007EB0A0 /* Assets.xcassets */,
 				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
@@ -275,12 +281,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
+				444CB7A7201A3BC900C27E9D /* NewReplyViewController.swift in Sources */,
 				89FD01371FFD69E200E9C5C5 /* ForumPostTableViewController.swift in Sources */,
 				89BC50F21FEB217500714B3A /* ForumPostTableViewCell.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
 				6093060B2008CE2400EAAE38 /* ForumAnswerTableViewCell.swift in Sources */,
 				89BC50F01FEB1A0E00714B3A /* ForumPost.swift in Sources */,
 				609306092008CBF700EAAE38 /* ForumAnswerTableViewController.swift in Sources */,
+				444CB7AD201A498F00C27E9D /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

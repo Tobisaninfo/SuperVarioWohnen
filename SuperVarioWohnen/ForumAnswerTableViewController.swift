@@ -12,7 +12,6 @@ class ForumAnswerTableViewController: UITableViewController {
     
     //MARK
     var forumAnswer = [ForumPost]()
-    var forumPost : ForumPost?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +22,9 @@ class ForumAnswerTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
+        
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 140
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,32 +52,35 @@ class ForumAnswerTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ForumAnswerTableViewCell", for: indexPath) as? ForumAnswerTableViewCell else {
-            fatalError("Not a Forum Post")
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ForumAnswerTableViewCell", for: indexPath) as! ForumAnswerTableViewCell
         
-        if indexPath.section == 0 {
-            cell.userLabel.text = forumPost?.user
-            cell.titleLabel.text = forumPost?.title
-            cell.answerLabel.text = forumPost?.postText
-        }
-        else {
-            cell.userLabel.text = forumAnswer[indexPath.section - 1].user
-            cell.titleLabel.text = forumPost?.title
-            cell.answerLabel.text = forumAnswer[indexPath.section - 1].postText
-        }
+        cell.userLabel.text = forumAnswer[indexPath.section].user
+        cell.titleLabel.text = forumAnswer[0].title
+        cell.answerLabel.text = forumAnswer[indexPath.section].postText
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return forumPost?.date.description
-        }
-        else {
-            return forumAnswer[section - 1].date.description
-        }
+        let dateFormatterGerman = DateFormatter()
+        dateFormatterGerman.dateFormat = "dd.MM.YYYY HH:mm"
+        let dateString = dateFormatterGerman.string(from: forumAnswer[0].date)
+        
+        return dateString
+    }
+    
+    
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ForumAnswerTableViewCell
+        print("ZellenFrame: \(cell.userLabel.frame)")
+        
     }
 
+    /*
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ForumAnswerTableViewCell
+        print("ZellenFrameDeselect: \(cell.userLabel.frame)")
+    }*/
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
