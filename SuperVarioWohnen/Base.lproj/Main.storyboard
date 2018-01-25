@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -283,46 +282,47 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="35" maxY="560"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J1g-jV-sYq">
-                                            <size key="itemSize" width="164" height="171"/>
+                                            <size key="itemSize" width="164" height="200"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ordner" id="axA-FJ-MQb" customClass="DocumentsViewCell" customModule="SuperVarioWohnen" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="164" height="171"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ordner" id="pOp-ux-Oys" customClass="DocumentsViewCell" customModule="SuperVarioWohnen" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="164" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="171"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="200"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FZJ-5t-oIe">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="142"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zRd-wc-xai">
+                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="163"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4m-Ob-7il">
-                                                            <rect key="frame" x="8" y="150" width="148" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lD-p6-7vt">
+                                                            <rect key="frame" x="0.0" y="171" width="164" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="5Ln-4i-iHd"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </view>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="FZJ-5t-oIe" firstAttribute="leading" secondItem="axA-FJ-MQb" secondAttribute="leading" id="8tP-Au-gns"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="C4m-Ob-7il" secondAttribute="trailing" id="CKK-ZE-ezK"/>
-                                                    <constraint firstItem="C4m-Ob-7il" firstAttribute="leading" secondItem="axA-FJ-MQb" secondAttribute="leadingMargin" id="CNj-xs-2gJ"/>
-                                                    <constraint firstItem="C4m-Ob-7il" firstAttribute="top" secondItem="FZJ-5t-oIe" secondAttribute="bottom" constant="8" id="Khv-KB-nTY"/>
-                                                    <constraint firstItem="C4m-Ob-7il" firstAttribute="bottom" secondItem="axA-FJ-MQb" secondAttribute="bottomMargin" constant="8" id="KmR-yO-Ujq"/>
-                                                    <constraint firstAttribute="trailing" secondItem="FZJ-5t-oIe" secondAttribute="trailing" id="RJy-ky-Luk"/>
-                                                    <constraint firstItem="FZJ-5t-oIe" firstAttribute="top" secondItem="axA-FJ-MQb" secondAttribute="top" id="X3X-0r-KsO"/>
-                                                    <constraint firstItem="C4m-Ob-7il" firstAttribute="top" secondItem="FZJ-5t-oIe" secondAttribute="bottom" constant="8" id="p4k-t5-blp"/>
+                                                    <constraint firstItem="0lD-p6-7vt" firstAttribute="leading" secondItem="pOp-ux-Oys" secondAttribute="leading" id="43S-Yg-3EI"/>
+                                                    <constraint firstItem="0lD-p6-7vt" firstAttribute="top" secondItem="zRd-wc-xai" secondAttribute="bottom" constant="8" id="6NB-4C-Soj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zRd-wc-xai" secondAttribute="trailing" id="B7a-DQ-lWL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0lD-p6-7vt" secondAttribute="bottom" constant="8" id="LMo-Zf-K8j"/>
+                                                    <constraint firstAttribute="trailing" secondItem="0lD-p6-7vt" secondAttribute="trailing" id="OCx-U2-yfv"/>
+                                                    <constraint firstItem="zRd-wc-xai" firstAttribute="top" secondItem="pOp-ux-Oys" secondAttribute="top" id="gad-Ee-rmU"/>
+                                                    <constraint firstItem="zRd-wc-xai" firstAttribute="leading" secondItem="pOp-ux-Oys" secondAttribute="leading" id="qOk-cA-efS"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="imageView" destination="FZJ-5t-oIe" id="zpR-bu-xNh"/>
-                                                    <outlet property="label" destination="C4m-Ob-7il" id="Z0F-cj-pSW"/>
-                                                    <segue destination="An6-nO-VE4" kind="show" identifier="goto" id="p1f-7J-Hiz">
-                                                        <nil key="action"/>
-                                                    </segue>
+                                                    <outlet property="imageView" destination="zRd-wc-xai" id="BPD-9H-gAi"/>
+                                                    <outlet property="label" destination="0lD-p6-7vt" id="XwQ-3d-V6T"/>
+                                                    <segue destination="An6-nO-VE4" kind="show" identifier="filesSegue" id="GOR-jq-h7d"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -377,7 +377,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="162" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf.png" translatesAutoresizingMaskIntoConstraints="NO" id="WFo-hO-shv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf" translatesAutoresizingMaskIntoConstraints="NO" id="WFo-hO-shv">
                                                     <rect key="frame" x="0.0" y="0.0" width="162" height="106"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guf-21-r9x">
@@ -472,6 +472,6 @@
     <resources>
         <image name="Flash" width="25" height="25"/>
         <image name="Logo" width="224" height="46"/>
-        <image name="pdf.png" width="16" height="16"/>
+        <image name="pdf" width="128" height="128"/>
     </resources>
 </document>
