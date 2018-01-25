@@ -120,16 +120,17 @@ public class QRcodeController: UIViewController {
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(videoPreviewLayer!)
-        
-        // Start video capture.
-        captureSession.startRunning()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
-        // Start video capture.
+        captureSession.startRunning()
     }
     
     override public func viewDidDisappear(_ animated: Bool) {
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        captureSession.stopRunning()
     }
     
     override public func didReceiveMemoryWarning() {
