@@ -15,24 +15,20 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBOutlet weak var callBtn: UIButton!
     @IBOutlet weak var mailBtn: UIButton!
+    @IBOutlet weak var AddressField: UITextView!
+    @IBOutlet weak var openingsField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let defaults = UserDefaults.standard
-        let code: String? = defaults.string(forKey: "qr")
-        getManagementFromAuth(code: code)
+        getManagementFromAuth()
         // For development purposes; Remove later !!!
         management = Management(id: "1",name: "Howoge", postcode: "13055", place: "Berlin", street: "Testgasse 1",
                                 phone: "03011223344", mail: "howoge@test.de",
                                 openings_weekdays: "Mo-Fr: 8:00 - 17:00?", openings_weekends: "")
-        if self.management != nil{
-            if self.management?.mail == nil {
-                mailBtn.isEnabled=false
-            }
-            if self.management?.phone == nil {
-                callBtn.isEnabled = false
-            }
-        }
+        
+        setButtonStates()
+        populateTextFields()
+
     }
   
     override func didReceiveMemoryWarning() {
@@ -40,10 +36,13 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
-    func getManagementFromAuth(code : String?){
+    func getManagementFromAuth(){
+        let defaults = UserDefaults.standard
+        let code: String? = defaults.string(forKey: "qr")
         if code == nil {return}
         let url : URL = URL(string:"https://thecodelabs.de:2530/management")!
         
+        //Setting the Header
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue(code, forHTTPHeaderField: "auth")
@@ -71,6 +70,25 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
             }
             }.resume()
         
+    }
+    
+    func setButtonStates() {
+        if self.management != nil{
+            if self.management?.mail == nil {
+                mailBtn.isEnabled=false
+            }
+            if self.management?.phone == nil {
+                callBtn.isEnabled = false
+            }
+        }
+    }
+    
+    func populateTextFields(){
+        AddressField.text = ""
+        let name : String = (self.management?.name)!
+        let street = (self.management?.street)!
+        let zipCity = (self.management?.place)!+" "+(self.management?.postcode)!
+        AddressField.insertText(name + "\n" + street + "\n" + zipCity)
     }
     
     @IBAction func call(_ sender: Any) {
