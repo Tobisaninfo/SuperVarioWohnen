@@ -52,9 +52,6 @@ class DocumentsViewController: UIViewController, UICollectionViewDataSource, UIC
             cell.label.text = "Ratgeber"
             
             self.downloadJsonWithURL1(Urlstring: urlString1)
-            // doc_name = documentname
-            // print(doc_name)
-            //  folder_name = self.foldername
             
         } else if indexPath.row == 2 {
             
@@ -83,11 +80,9 @@ class DocumentsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "goto"
+        if segue.identifier == "filesSegue"
         {
             // let viewVC = segue.destination as! detailViewController
-            
-            
             if (odrnerauswahlnummer==1){
                 let viewVC = segue.destination as! FilesViewController
                 viewVC.documentid = documentid
