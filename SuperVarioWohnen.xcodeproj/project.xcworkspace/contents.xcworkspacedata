@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SuperVarioWohnen.xcodeproj">
+      location = "group:/Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/AppDelegate.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/Image.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/Info.plist">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/mac/Documents/SuperVarioWohnenGit/SuperVarioWohnen/ViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
