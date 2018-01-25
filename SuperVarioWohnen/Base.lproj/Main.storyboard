@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rzh-mn-NyK">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="5CC-oH-bYR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Nx-pb-Oqj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="GbU-Yd-YiM"/>
@@ -30,57 +30,64 @@
             <objects>
                 <viewController id="SG2-DC-qIp" customClass="KontakteViewController" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ycv-9c-hfa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXo-ga-DM4">
-                                <rect key="frame" x="277" y="383" width="44" height="30"/>
+                                <rect key="frame" x="255" y="421" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="E-Mail"/>
+                                <connections>
+                                    <action selector="sendEmailWithSender:" destination="SG2-DC-qIp" eventType="touchUpInside" id="CJr-26-NzH"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Adresse" translatesAutoresizingMaskIntoConstraints="NO" id="dmn-LT-tK7">
-                                <rect key="frame" x="16" y="222" width="343" height="77"/>
+                                <rect key="frame" x="16" y="200" width="288" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="street-address"/>
                                 <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-e1-vuQ">
-                                <rect key="frame" x="16" y="64" width="343" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="management_test_picture" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-e1-vuQ">
+                                <rect key="frame" x="11" y="64" width="298" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Öffnungszeiten" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Jm-lY-qAx">
-                                <rect key="frame" x="16" y="309" width="240" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaK-zz-Kcm" userLabel="callBtn">
-                                <rect key="frame" x="16" y="383" width="94" height="30"/>
+                                <rect key="frame" x="11" y="421" width="94" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Anruf"/>
                                 <connections>
                                     <action selector="call:" destination="SG2-DC-qIp" eventType="touchUpInside" id="D6A-mR-BuZ"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Öffnungszeiten" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Jm-lY-qAx">
+                                <rect key="frame" x="11" y="294" width="288" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="V2J-e3-mD5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Kontakt" id="Ftd-jg-N8q"/>
+                    <connections>
+                        <outlet property="callBtn" destination="EaK-zz-Kcm" id="b3t-Fs-6Ue"/>
+                        <outlet property="mailBtn" destination="UXo-ga-DM4" id="CnH-yh-zXA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m02-og-BuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2341.5999999999999" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2340" y="132.04225352112675"/>
         </scene>
         <!--Dokumente-->
         <scene sceneID="N3s-Aa-1YW">
             <objects>
                 <viewController id="g5d-7j-nEe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ekM-0W-6Yd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="JHB-LG-Bxa"/>
@@ -96,7 +103,7 @@
             <objects>
                 <viewController id="buc-jg-PEj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UE4-Ud-zhh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="qGX-vv-Ij2"/>
@@ -112,7 +119,7 @@
             <objects>
                 <viewController id="s1c-JE-cwj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0QC-Bh-Wzr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="xvG-oZ-Il2"/>
@@ -128,7 +135,7 @@
             <objects>
                 <viewController id="8rs-cD-jno" customClass="ScannerViewController" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJB-lQ-afh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMu-7N-NNw">
@@ -156,7 +163,7 @@
             <objects>
                 <viewController id="Rzh-mn-NyK" customClass="LoginViewController" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9I-4h-SgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mXc-Vb-b0d">
@@ -228,7 +235,7 @@
                     <tabBarItem key="tabBarItem" title="Schwarzes Brett" id="1TL-9n-jAx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TjW-WA-Xg9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -247,7 +254,7 @@
                     <tabBarItem key="tabBarItem" title="Forum" id="S2w-Pc-b8M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dm9-Id-nH2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -266,7 +273,7 @@
                     <tabBarItem key="tabBarItem" title="Kontakt" id="kft-G6-2Pa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ns0-sP-JmW">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -285,7 +292,7 @@
                     <tabBarItem key="tabBarItem" title="Dokumente" id="IwK-Kr-6E4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qn2-rP-dLB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -304,7 +311,7 @@
                     <tabBarItem key="tabBarItem" title="Map" id="O19-JQ-qHw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pq4-RB-JS0">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -320,5 +327,6 @@
     <resources>
         <image name="Flash" width="25" height="25"/>
         <image name="Logo" width="224" height="46"/>
+        <image name="management_test_picture" width="1500" height="526"/>
     </resources>
 </document>

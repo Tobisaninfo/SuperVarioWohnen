@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5EBAB5742007B9580047CD7A /* KontakteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBAB5732007B9580047CD7A /* KontakteViewController.swift */; };
+		5E868689201A0D0100EE7C21 /* Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E868688201A0D0100EE7C21 /* Management.swift */; };
 		5EA6FB682007D8E9009EC076 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB672007D8E9009EC076 /* ScannerViewController.swift */; };
 		5EA6FB6A2007D9B2009EC076 /* QRcodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB692007D9B2009EC076 /* QRcodeController.swift */; };
 		5EA6FB6C2007EAB0009EC076 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FB6B2007EAB0009EC076 /* LoginViewController.swift */; };
+		5EBAB5742007B9580047CD7A /* KontakteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBAB5732007B9580047CD7A /* KontakteViewController.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
 		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
@@ -38,10 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5EBAB5732007B9580047CD7A /* KontakteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontakteViewController.swift; sourceTree = "<group>"; };
+		5E868688201A0D0100EE7C21 /* Management.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Management.swift; sourceTree = "<group>"; };
 		5EA6FB672007D8E9009EC076 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		5EA6FB692007D9B2009EC076 /* QRcodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRcodeController.swift; sourceTree = "<group>"; };
 		5EA6FB6B2007EAB0009EC076 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5EBAB5732007B9580047CD7A /* KontakteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontakteViewController.swift; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,14 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5EBAB5752007BDD60047CD7A /* Kontakte */ = {
-			isa = PBXGroup;
-			children = (
-				5EBAB5732007B9580047CD7A /* KontakteViewController.swift */,
-			);
-			path = Kontakte;
-			sourceTree = "<group>";
-		};
 		5EA6FB662007D882009EC076 /* QR-Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +92,15 @@
 				5EA6FB6B2007EAB0009EC076 /* LoginViewController.swift */,
 			);
 			path = "QR-Code";
+			sourceTree = "<group>";
+		};
+		5EBAB5752007BDD60047CD7A /* Kontakte */ = {
+			isa = PBXGroup;
+			children = (
+				5EBAB5732007B9580047CD7A /* KontakteViewController.swift */,
+				5E868688201A0D0100EE7C21 /* Management.swift */,
+			);
+			path = Kontakte;
 			sourceTree = "<group>";
 		};
 		F64615DD1FA8790C007EB0A0 = {
@@ -291,6 +294,7 @@
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
 				5EA6FB682007D8E9009EC076 /* ScannerViewController.swift in Sources */,
 				5EA6FB6C2007EAB0009EC076 /* LoginViewController.swift in Sources */,
+				5E868689201A0D0100EE7C21 /* Management.swift in Sources */,
 				5EA6FB6A2007D9B2009EC076 /* QRcodeController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
 			);

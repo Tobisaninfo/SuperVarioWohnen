@@ -11,13 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
-        // ztiuohijopk
+
         super.viewDidLoad()
-        let defaults = UserDefaults.standard
-        let code: String? = defaults.string(forKey: "qr")
-        if(code != nil) {
-            self.performSegue(withIdentifier: "loginSuccSeque", sender: self)
-        }
         // Do any additional setup after loading the view.
         let domain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: domain)
@@ -31,9 +26,10 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // ztiuohijopk
         let defaults = UserDefaults.standard
         let code: String? = defaults.string(forKey: "qr")
-        if(code != nil) {
+        if(code == nil) {
             self.performSegue(withIdentifier: "loginSuccSeque", sender: self)
         }
     }
