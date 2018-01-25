@@ -18,45 +18,45 @@ class NewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         postTextView.layer.borderWidth = 0.5
         postTextView.layer.borderColor = borderColor.cgColor
         postTextView.layer.cornerRadius = 3
         
-        sendeButton.isEnabled = false
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func sendenClicked(_ sender: Any) {
-    }
-    
-    @IBAction func titleEdited(_ sender: Any) {
-        titelLabel.resignFirstResponder()
-        if (titelLabel.text?.isEmpty)! && postTextView.text.isEmpty || postTextView.text == "Enter your message hier" {
-            sendeButton.isEnabled = false
+        if (titelLabel.text?.isEmpty)! && postTextView.text.isEmpty || postTextView.text == "Enter a message" {
             return
         }
-        sendeButton.isEnabled = true
+        
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     
-    
-    
-
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
+

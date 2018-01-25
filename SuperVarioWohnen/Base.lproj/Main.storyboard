@@ -260,16 +260,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMf-XD-dra">
-                                <rect key="frame" x="35" y="156" width="304" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Senden"/>
-                                <connections>
-                                    <action selector="sendenClicked:" destination="CxM-we-3oU" eventType="touchUpInside" id="hSw-17-1EZ"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter a message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4ZM-Vi-1r3">
-                                <rect key="frame" x="35" y="103" width="304" height="33"/>
+                                <rect key="frame" x="35" y="103" width="304" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -279,24 +271,30 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="titleEdited:" destination="CxM-we-3oU" eventType="editingDidEnd" id="ycY-jX-HX1"/>
-                                </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMf-XD-dra">
+                                <rect key="frame" x="116" y="568" width="143" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Senden"/>
+                                <connections>
+                                    <action selector="sendenClicked:" destination="CxM-we-3oU" eventType="touchUpInside" id="hSw-17-1EZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b3k-f7-ajr" firstAttribute="top" secondItem="Hp2-Zd-kxi" secondAttribute="topMargin" constant="5" id="60j-EK-Sq2"/>
                             <constraint firstItem="b3k-f7-ajr" firstAttribute="leading" secondItem="eep-hN-bzY" secondAttribute="trailing" constant="10" id="6m9-7k-yWL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b3k-f7-ajr" secondAttribute="trailing" constant="19" id="7H2-4e-ian"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZMf-XD-dra" secondAttribute="trailing" constant="100" id="G8N-Z2-kq3"/>
                             <constraint firstItem="4ZM-Vi-1r3" firstAttribute="top" secondItem="eep-hN-bzY" secondAttribute="bottom" constant="8" id="HaD-6r-cWK"/>
-                            <constraint firstItem="ZMf-XD-dra" firstAttribute="leading" secondItem="Hp2-Zd-kxi" secondAttribute="leadingMargin" constant="19" id="JRj-KQ-mbb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZMf-XD-dra" secondAttribute="trailing" constant="20" id="MmN-gK-4QA"/>
                             <constraint firstItem="ZMf-XD-dra" firstAttribute="top" secondItem="4ZM-Vi-1r3" secondAttribute="bottom" constant="20" id="Ngu-yQ-JKD"/>
+                            <constraint firstItem="ZMf-XD-dra" firstAttribute="leading" secondItem="Hp2-Zd-kxi" secondAttribute="leadingMargin" constant="100" id="Uh9-LC-WVQ"/>
                             <constraint firstItem="4ZM-Vi-1r3" firstAttribute="leading" secondItem="Hp2-Zd-kxi" secondAttribute="leadingMargin" constant="19" id="UlD-VY-GUh"/>
                             <constraint firstItem="eep-hN-bzY" firstAttribute="leading" secondItem="Hp2-Zd-kxi" secondAttribute="leadingMargin" constant="19" id="Xbb-pW-43z"/>
                             <constraint firstItem="eep-hN-bzY" firstAttribute="top" secondItem="Hp2-Zd-kxi" secondAttribute="topMargin" constant="10" id="jhT-Hl-BBw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4ZM-Vi-1r3" secondAttribute="trailing" constant="20" id="q5P-Z1-d5q"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="4ZM-Vi-1r3" secondAttribute="bottom" constant="70" id="tRv-i2-cfU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u9R-Vw-IfI"/>
                     </view>
