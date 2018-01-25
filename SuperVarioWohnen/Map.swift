@@ -10,20 +10,25 @@ import UIKit
 import MapKit
 import CoreLocation
 class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMapViewDelegate,UIGestureRecognizerDelegate, MKLocalSearchCompleterDelegate,UITableViewDelegate, UITableViewDataSource {
-
-
+    
+    
     @IBOutlet var naviCon: UINavigationItem!
     let searchBar = UISearchBar()
     var tableView: UITableView!
+    @IBOutlet weak var timeRoute: UILabel!
+    @IBOutlet weak var popupView: UIView!
     var routeView: UIView!
     let dataSource: UITableViewDataSource! = nil
     @IBOutlet weak var mapView: MKMapView!
     var myLocation:CLLocation!
     let annotation = MKPointAnnotation()
-    let pointAnnotation = MKPointAnnotation()
+    var pointAnnotation = MKPointAnnotation()
     var searchMode:Bool!
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
+    var directType = MKDirectionsTransportType.automobile
+    var dist:Double!
+    var time:Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +39,17 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         mapView.delegate=self
         initTableView()
         initGesture()
-        initView()
+
         searchBar.showsCancelButton=true
         searchCompleter.delegate = self
         searchBar.delegate = self
+        //timeRoute!.text!="test" //Label text ist nil
+        
+        
+        
+        
+        
+        
     }
     
     func initGesture(){
@@ -58,14 +70,8 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         tableView.dataSource = self
         tableView.delegate = self
     }
-    func initView(){
-        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-        
-        let displayWidth: CGFloat = self.view.frame.width
-        let displayHeight: CGFloat = 1000.0
-        routeView = UIView(frame: CGRect(x: 0, y: barHeight+100, width: displayWidth, height: displayHeight))
-        self.view.addSubview(routeView)
-    }
+    
+
     
     
     
@@ -96,7 +102,8 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         annotation.coordinate = coordinate
         annotation.title = "Auswahl"
         mapView.addAnnotation(annotation)
-        routeShow(point2: annotation)
+        pointAnnotation=annotation
+        routeShow()
     }
     
     @objc func shortTap(sender: UITapGestureRecognizer) {
@@ -108,6 +115,8 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         if(annotation.coordinate.latitude != 0.0 && annotation.coordinate.longitude != 0.0){
             mapView.removeAnnotation(annotation)
         }
+        popupView.isHidden=true
+        
     }
     
     
@@ -137,7 +146,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         }
     }
     
-
+    
     
     @IBAction func route(_ sender: UIBarButtonItem) {
         if(searchMode){
@@ -147,12 +156,25 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         else{
             searchMode=true
             searchBar.placeholder="Suchen..."
+            popupView.removeFromSuperview()
         }
         if(searchBar.text != ""){
             searching()
         }
         
     }
+    
+    @IBAction func switchDirect(_ sender: UIBarButtonItem) {
+        if(directType.isSubset(of: MKDirectionsTransportType.automobile)){
+            directType = MKDirectionsTransportType.walking
+        }
+        else{
+            directType = MKDirectionsTransportType.automobile
+        }
+        mapView.removeOverlays(mapView.overlays)
+        routeShow()
+    }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.view.addSubview(tableView)
@@ -163,7 +185,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         searchResults = completer.results
         tableView.reloadData()
     }
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableView.removeFromSuperview()
         searchBar.text=""
@@ -172,8 +194,9 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         searching()
+        popupView.isHidden=true
     }
-
+    
     
     func searching(){
         tableView.removeFromSuperview()
@@ -189,32 +212,57 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
                 self.mapView.setRegion(MKCoordinateRegionMake(self.pointAnnotation.coordinate, MKCoordinateSpanMake(0.2,0.2)), animated: true)
             }
             else{
-                self.routeShow(point2: self.pointAnnotation)
+                self.routeShow()
             }
         }
     }
+    func showTime(){
+        popupView.isHidden=false
+        var cacheDist:String!
+        var cacheTime:String!
+        if(dist>999){
+            cacheDist="\(round(dist/1000)) km "
+        }
+        else{
+            cacheDist="\(round(dist)) m "
+        }
+        if((time/60)>59){
+            var min=time/3600
+            var hours=0
+            while(min>=1){
+                min=min-1
+                hours=hours+1
+            }
+            min=min*60
+            cacheTime="(\(hours) std \(round(min)) min)"
+        }
+        else{
+            cacheTime="(\(round(time/60)) min)"
+        }
+        timeRoute.text=cacheDist+cacheTime
+    }
     
-    
-    func routeShow(point2: MKPointAnnotation){
+    func routeShow(){
         
         let point1 = MKPointAnnotation()
-        
+        let point2 = pointAnnotation
         point1.coordinate = CLLocationCoordinate2DMake(myLocation.coordinate.latitude, myLocation.coordinate.longitude)
-
+        
         setRegionBetween(point1: point1, point2: point2)
         
-        let directionsRequest = MKDirectionsRequest()
+        
         
         let source = MKPlacemark(coordinate: CLLocationCoordinate2DMake(point1.coordinate.latitude, point1.coordinate.longitude), addressDictionary: nil)
         
         let target = MKPlacemark(coordinate: CLLocationCoordinate2DMake(point2.coordinate.latitude, point2.coordinate.longitude), addressDictionary: nil)
         
+        let directionsRequest = MKDirectionsRequest()
         directionsRequest.source = MKMapItem(placemark: source)
         directionsRequest.destination = MKMapItem(placemark: target)
         
-        directionsRequest.transportType = MKDirectionsTransportType.automobile
+        directionsRequest.transportType = directType
         
-
+        
         let directions = MKDirections(request: directionsRequest)
         directions.calculate(completionHandler: {
             response, error in
@@ -224,14 +272,18 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
                 
                 for route in response!.routes {
                     self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-                    print("Strecke: \(route.distance/1000)km")
-                    print("Zeit: \(route.expectedTravelTime/3600)std")
+                    
+                    self.dist=route.distance
+                    self.time=route.expectedTravelTime
+                    self.showTime()
                     break
                 }
                 
             }
         })
+        
     }
+    
     
     func setRegionBetween(point1: MKPointAnnotation, point2: MKPointAnnotation){
         let coordinate1=CLLocation(latitude:point1.coordinate.latitude,longitude: point1.coordinate.longitude)

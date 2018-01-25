@@ -36,6 +36,20 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </mapView>
+                            <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y7h-EQ-5Mp" colorLabel="IBBuiltInLabel-Blue">
+                                <rect key="frame" x="0.0" y="516" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYM-Mi-OG1">
+                                        <rect key="frame" x="69" y="19" width="237" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,17 +70,23 @@
                                 <action selector="route:" destination="buc-jg-PEj" id="q6S-SZ-vPf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="8b7-zS-wfr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="8b7-zS-wfr">
+                            <connections>
+                                <action selector="switchDirect:" destination="buc-jg-PEj" id="Izi-Eh-5YL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="wMl-aZ-4NY" id="y3a-aQ-Tsi"/>
                         <outlet property="naviCon" destination="bcw-n6-dsX" id="cU1-qw-v2I"/>
+                        <outlet property="popupView" destination="y7h-EQ-5Mp" id="kl2-0r-Ex1"/>
+                        <outlet property="timeRoute" destination="mYM-Mi-OG1" id="kVo-rK-A23"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdR-tk-pSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2743" y="1567"/>
+            <point key="canvasLocation" x="2741.5999999999999" y="1566.5667166416792"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BdW-qW-bWn">
