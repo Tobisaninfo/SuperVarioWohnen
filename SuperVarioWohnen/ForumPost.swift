@@ -11,7 +11,7 @@ import UIKit
 class ForumPost {
     
     //MARK: Properties
-    
+    var id: Int
     var user: String
     var title: String
     var postText: String
@@ -19,10 +19,11 @@ class ForumPost {
     
     //MARK: Initialization
     
-    init?(user: String, title: String, postText: String, date: Date) {
+    init?(id: Int, user: String, title: String, postText: String, date: Date) {
         if user.isEmpty || postText.isEmpty {
             return nil
         }
+        self.id = id
         self.user = user
         self.title = title
         self.postText = postText

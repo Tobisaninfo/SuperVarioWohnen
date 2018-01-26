@@ -12,10 +12,10 @@ class ForumAnswerTableViewController: UITableViewController {
     
     //MARK
     var forumAnswer = [ForumPost]()
+    let forumPostUrl = "https://thecodelabs.de:2530/forum/1/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LoadForumAnswe()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -25,6 +25,10 @@ class ForumAnswerTableViewController: UITableViewController {
         
         //tableView.rowHeight = UITableViewAutomaticDimension
         //tableView.estimatedRowHeight = 140
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        LoadForumAnswer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +40,7 @@ class ForumAnswerTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return forumAnswer.count + 1
+        return forumAnswer.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -116,24 +120,77 @@ class ForumAnswerTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "neueAntWortIdentifier" {
+            let destinationViewController = segue.destination as! NewReplyViewController
+            destinationViewController.id = forumAnswer[0].id.description
+        }
     }
-    */
     
-    func LoadForumAnswe() {
-        for _ in 1 ..< 11 {
+    
+    func LoadForumAnswer() {
+        
+        let url = forumPostUrl + forumAnswer[0].id.description
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.setValue("ztiuohijopk", forHTTPHeaderField: "auth")
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                do{
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [Any]
+                    if (jsonObject?.isEmpty)!{
+                        return
+                    }
+                    if let json = jsonObject {
+                        for index in 0...json.count-1{
+                            let postElmt = json[index] as! [String : Any]
+                            let datestr = postElmt["date"] as! String
+                            let dateformatter = DateFormatter()
+                            dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                            let date = dateformatter.date(from: datestr)!
+                            let tenant = postElmt["tenant"] as! [String : Any]
+                            let name = tenant["name"] as! String
+                            let lastname = tenant["lastName"] as! String
+                            let user = name + " " + lastname
+                            let title = self.forumAnswer[0].title
+                            let message = postElmt["message"] as! String
+                            let id = postElmt["id"] as! Int
+                            guard let forumpost = ForumPost(id: id, user: user, title: title, postText: message, date: date)
+                                else{
+                                    fatalError("Fehler bei der Instanziierung von Post Objekte!!")
+                            }
+                            /*print(user)
+                             print(title)
+                             print(message)
+                             print(date)*/
+                            self.forumAnswer += [forumpost]
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        session.resume()
+        
+        /*for _ in 1 ..< 11 {
             guard let forumPost = ForumPost(user: "Gires Ntchouayang", title: "Nicht Wichtig", postText: "Lorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizouorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizo", date: Date.init())
                 else{
                     fatalError("Konnte kein Post erzeugen...")
             }
             forumAnswer += [forumPost]
-        }
+        }*/
     }
 
 }

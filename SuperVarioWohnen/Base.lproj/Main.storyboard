@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RfQ-0b-ZBo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RfQ-0b-ZBo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -165,7 +165,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sET-Km-esY" id="WHR-fR-kru">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Neuigkeiten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JAx-0o-9RI">
@@ -185,7 +185,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8sD-gL-YOQ" id="aWb-zr-kjr">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Geplantes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gnr-an-dYv">
@@ -202,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W1w-Bx-iJ2" id="Ykv-ft-bFR">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Veranstaltungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7MJ-wc-X2h">
@@ -219,7 +219,7 @@
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iuA-Fu-uFO" id="RdQ-cr-PZa">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Börse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mvf-W0-Qj7">
@@ -312,7 +312,7 @@
         <!--Neue Antwort-->
         <scene sceneID="7vh-XL-DPg">
             <objects>
-                <viewController id="XnI-pC-TrT" sceneMemberID="viewController">
+                <viewController id="XnI-pC-TrT" customClass="NewReplyViewController" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="47h-u4-xZb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -324,20 +324,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter a message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sGw-LH-mcp">
-                                <rect key="frame" x="36" y="130" width="303" height="33"/>
+                                <rect key="frame" x="36" y="130" width="303" height="408"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbq-1v-wJD">
-                                <rect key="frame" x="52" y="193" width="272" height="36"/>
+                                <rect key="frame" x="52" y="568" width="272" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Senden"/>
+                                <connections>
+                                    <action selector="sendenClicked:" destination="XnI-pC-TrT" eventType="touchUpInside" id="ogi-pN-wfk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dbq-1v-wJD" firstAttribute="top" secondItem="sGw-LH-mcp" secondAttribute="bottom" constant="30" id="Nz1-dc-bDu"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="sGw-LH-mcp" secondAttribute="bottom" constant="80" id="ReN-33-W0d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sGw-LH-mcp" secondAttribute="trailing" constant="20" id="SQI-oK-Lam"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dbq-1v-wJD" secondAttribute="trailing" constant="35" id="V7S-eP-XaD"/>
                             <constraint firstItem="sGw-LH-mcp" firstAttribute="leading" secondItem="47h-u4-xZb" secondAttribute="leadingMargin" constant="20" id="bH7-ww-b2q"/>
@@ -350,6 +354,10 @@
                         <viewLayoutGuide key="safeArea" id="2Nv-Pz-iwf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Neue Antwort" id="f4a-DI-CkZ"/>
+                    <connections>
+                        <outlet property="postTextView" destination="sGw-LH-mcp" id="BoS-gU-Jem"/>
+                        <outlet property="sendeButton" destination="dbq-1v-wJD" id="WJ4-fB-6U8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KF2-cr-j1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -489,7 +497,7 @@
                     <navigationItem key="navigationItem" title="Antworten" id="anM-Gn-zph">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hQK-D8-lrG">
                             <connections>
-                                <segue destination="XnI-pC-TrT" kind="show" id="1Xg-0n-Sa7"/>
+                                <segue destination="XnI-pC-TrT" kind="show" identifier="neueAntWortIdentifier" id="1Xg-0n-Sa7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

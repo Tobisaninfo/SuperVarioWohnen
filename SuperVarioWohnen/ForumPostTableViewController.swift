@@ -16,9 +16,6 @@ class ForumPostTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadForumPost()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,6 +23,10 @@ class ForumPostTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        loadForumPost()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,10 +114,9 @@ class ForumPostTableViewController: UITableViewController {
         }
     }
     
-    
     //MARK: Private Methods
     private func loadForumPost() {
-        /*var request = URLRequest(url: url!)
+        var request = URLRequest(url: url!)
         request.setValue("ztiuohijopk", forHTTPHeaderField: "auth")
         request.httpMethod = "GET"
         
@@ -137,7 +137,8 @@ class ForumPostTableViewController: UITableViewController {
                             let user = name + " " + lastname
                             let title = postElmt["title"] as! String
                             let message = postElmt["message"] as! String
-                            guard let forumpost = ForumPost(user: user, title: title, postText: message, date: date)
+                            let id = postElmt["id"] as! Int
+                            guard let forumpost = ForumPost(id: id, user: user, title: title, postText: message, date: date)
                                 else{
                                     fatalError("Fehler bei der Instanziierung von Post Objekte!!")
                             }
@@ -158,14 +159,14 @@ class ForumPostTableViewController: UITableViewController {
                 print(error.localizedDescription)
             }
         }
-        session.resume()*/
-        for _ in 1 ..< 11 {
+        session.resume()
+        /*for _ in 1 ..< 11 {
             guard let forumPost = ForumPost(user: "Gires Ntchouayang", title: "Hier ist der Titel", postText: "Lorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizouorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizo", date: Date.init())
                 else{
                     fatalError("Konnte kein Post erzeugen...")
             }
             forumPosts += [forumPost]
-        }
+        }*/
     }
 
 }
