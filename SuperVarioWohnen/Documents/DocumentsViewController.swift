@@ -9,67 +9,52 @@
 
 import UIKit
 
-class DocumentsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class DocumentsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var selectedFolder : Int? =  nil
     
-    var documentid : Int = 0
-    var odrnerauswahlnummer : Int? =  nil
-    var documentname = String ()
-    var  foldername  = String ()
-    let array = ["10"]
+    var documents: [Document] = []
+    
     ///server Data
     let yourAuthorizationToken = "ztiuohijopk" // whatever is your token
-    let urlString1 = "https://thecodelabs.de:2530/documents"
+    let urlString = "https://thecodelabs.de:2530/documents"
+    
+    let folderNames = ["Rechnungen", "Ratgeber", "Grundriss", "Mietvertrag"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        collectionView.dataSource = self
+        
+        DispatchQueue.global().async {
+            self.downloadJsonFromUrl(urlString: self.urlString)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  4
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ordner", for: indexPath) as! DocumentsViewCell
         
+        var imageName: String?
+        
         if indexPath.row == 0 {
-            //configure action when tap cell 1
-            
-            odrnerauswahlnummer = 1
-            
-            let image = "\(array[0]).jpg"
-            cell.imageView.image = UIImage(named: image)
-            cell.label.text = "Rechnungen"
+            imageName = "folder"
         } else if indexPath.row == 1 {
-            //configure action when tap cell 2
-            odrnerauswahlnummer = 2
-            let image = "\(array[0]).jpg"
-            cell.imageView.image = UIImage(named: image)
-            cell.label.text = "Ratgeber"
-            
-            self.downloadJsonWithURL1(Urlstring: urlString1)
-            
+            imageName = "folder"
         } else if indexPath.row == 2 {
-            
-            odrnerauswahlnummer = 3
-            
-            let image = "\(array[0]).jpg"
-            cell.imageView.image = UIImage(named: image)
-            cell.label.text = "Grundriss"
-            
-            
-        }else if indexPath.row == 3 {
-            
-            odrnerauswahlnummer = 4
-            
-            let image = "\(array[0]).jpg"
-            cell.imageView.image = UIImage(named: image)
-            cell.label.text = "Mietvertrag"
+            imageName = "folder"
+        } else if indexPath.row == 3 {
+            imageName = "folder"
         }
+        
+        if let imageName = imageName {
+            cell.imageView.image = UIImage(named: imageName)
+        }
+        cell.label.text = folderNames[indexPath.row]
         return cell
     }
     
@@ -78,82 +63,54 @@ class DocumentsViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedFolder = indexPath.row
+        self.performSegue(withIdentifier: "fileSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "filesSegue"
-        {
-            // let viewVC = segue.destination as! detailViewController
-            if (odrnerauswahlnummer==1){
-                let viewVC = segue.destination as! FilesViewController
-                viewVC.documentid = documentid
-                viewVC.pdfname = documentname
-                viewVC.foldername = foldername
-            }
-            if (odrnerauswahlnummer==2){
-                let viewVC = segue.destination as! FilesViewController
-                viewVC.documentid = documentid
-                viewVC.pdfname = documentname
-                viewVC.foldername = foldername
-            }
-            if (odrnerauswahlnummer==3){
-                let viewVC = segue.destination as! FilesViewController
-                viewVC.documentid = documentid
-                viewVC.pdfname = documentname
-                viewVC.foldername = foldername
-                
-            }
-            if (odrnerauswahlnummer==4){
-                
-                let viewVC = segue.destination as! FilesViewController
-                viewVC.documentid = documentid
-                viewVC.pdfname = documentname
-                viewVC.foldername = foldername
-            }
-            
+        if segue.identifier == "fileSegue", let selectedFolder = selectedFolder {
+            let viewVC = segue.destination as! FilesViewController
+            viewVC.documents = documents.filter() { $0.folderName == folderNames[selectedFolder]}
         }
     }
     
     
-    func downloadJsonWithURL1(Urlstring: String) {
-        
-        let yourUrl = URL(string:Urlstring ) // whatever is your url
-        let yourPayload = Data() // whatever is your payload
-        var request = URLRequest(url:yourUrl!)
-        request.httpMethod = "GET"
-        request.setValue(yourAuthorizationToken, forHTTPHeaderField: "auth")
-        // request.setValue("application/pdf", forHTTPHeaderField: "Accept-Type")
-        request.httpBody = yourPayload
-        // executing the call
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-            // your stuff here
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String:Any]]
-                for dayData in json{
-                    
-                    if let name = dayData["name"] as? String{
-                        //  print (id)
-                        self.documentname = name
-                        // print (self.documentname)
-                        
+    func downloadJsonFromUrl(urlString: String) {
+        if let url = URL(string:urlString) {
+            let payload = Data()
+            var request = URLRequest(url:url)
+            request.httpMethod = "GET"
+            request.setValue(yourAuthorizationToken, forHTTPHeaderField: "auth")
+            request.httpBody = payload
+            
+            self.documents = []
+            
+            let session = URLSession(configuration: URLSessionConfiguration.default)
+            let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
+                do {
+                    if let data = data {
+                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [[String:Any]]
+                        for entry in json {
+                            guard let name = entry["name"] as? String else {
+                                continue
+                            }
+                            guard let id = entry["id"] as? Int else {
+                                continue
+                            }
+                            guard let folder = entry["folder"] as? String else {
+                                continue
+                            }
+                            
+                            self.documents.append(Document(id: id, name: name, folderName: folder))
+                        }
                     }
-                    
-                    if let id = dayData["id"] as? Int{
-                        // print (id)
-                        self.documentid = id
-                        // print (self.documentid)
-                    }
-                    if let folder = dayData["folder"] as? String{
-                        // print (folder)
-                        self.foldername = folder
-                        //print (self.foldername)
-                    }
+                } catch let error as NSError {
+                    print("Failed to load: \(error.localizedDescription)")
                 }
-                //  print(a)
-            } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
-            }
-        })
-        task.resume()
+            })
+            task.resume()
+        }
     }
 }

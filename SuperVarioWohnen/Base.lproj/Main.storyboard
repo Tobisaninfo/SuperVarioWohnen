@@ -322,10 +322,13 @@
                                                 <connections>
                                                     <outlet property="imageView" destination="zRd-wc-xai" id="BPD-9H-gAi"/>
                                                     <outlet property="label" destination="0lD-p6-7vt" id="XwQ-3d-V6T"/>
-                                                    <segue destination="An6-nO-VE4" kind="show" identifier="filesSegue" id="GOR-jq-h7d"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="jcW-Fc-9bV" id="VF4-4z-hIz"/>
+                                            <outlet property="delegate" destination="jcW-Fc-9bV" id="oay-YG-hik"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                             </stackView>
@@ -341,7 +344,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Dokumente" id="jIm-Ld-Lja"/>
                     <connections>
-                        <outlet property="collectionView" destination="je2-S6-f3W" id="Frg-3M-G9l"/>
+                        <outlet property="collectionView" destination="je2-S6-f3W" id="axF-IX-8zL"/>
+                        <segue destination="An6-nO-VE4" kind="show" identifier="fileSegue" id="uyb-Pz-oLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRP-wf-gpa" sceneMemberID="firstResponder"/>
@@ -404,9 +408,6 @@
                                         <connections>
                                             <outlet property="imageView" destination="WFo-hO-shv" id="sNf-y2-hTz"/>
                                             <outlet property="label" destination="guf-21-r9x" id="foh-SK-MjN"/>
-                                            <segue destination="Hys-Qm-QTQ" kind="show" identifier="webview" id="oa2-DN-yWr">
-                                                <nil key="action"/>
-                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -428,6 +429,7 @@
                     <navigationItem key="navigationItem" id="8pM-T2-HCq"/>
                     <connections>
                         <outlet property="collectionview" destination="LYE-km-gir" id="6MU-12-ge2"/>
+                        <segue destination="Hys-Qm-QTQ" kind="show" identifier="webview" id="OlR-Fz-Pnz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qbJ-5J-j37" sceneMemberID="firstResponder"/>
@@ -461,7 +463,7 @@
                         <viewLayoutGuide key="safeArea" id="xuO-tt-hsU"/>
                     </view>
                     <connections>
-                        <outlet property="webe" destination="6kj-yf-e0g" id="W2j-Oq-Ihm"/>
+                        <outlet property="webView" destination="6kj-yf-e0g" id="W2j-Oq-Ihm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TV-Eb-lpG" sceneMemberID="firstResponder"/>
