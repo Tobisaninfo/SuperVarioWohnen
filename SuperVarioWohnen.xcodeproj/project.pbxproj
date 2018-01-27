@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B84F17851FCEBDEE00B39430 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F17841FCEBDEE00B39430 /* Map.swift */; };
-		B84F17871FCECFF600B39430 /* MarkPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F17861FCECFF600B39430 /* MarkPoints.swift */; };
-		B8C22FB61FD9C93B0002A5CC /* documents.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF31FD9B82C0077B2E9 /* documents.png */; };
-		B8C22FB71FD9C93D0002A5CC /* forum.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF41FD9B82C0077B2E9 /* forum.png */; };
-		B8C22FB81FD9C9400002A5CC /* contacts.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF51FD9B82D0077B2E9 /* contacts.png */; };
-		B8C22FB91FD9C9420002A5CC /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF21FD9B82C0077B2E9 /* map.png */; };
-		B8C22FBA1FD9C9570002A5CC /* blackboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F16EF11FD9B82C0077B2E9 /* blackboard.png */; };
-		B8D33B6E1FC74B6800F2C6EB /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D33B6D1FC74B6800F2C6EB /* DocumentController.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
 		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
@@ -42,15 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B84F17841FCEBDEE00B39430 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		B84F17861FCECFF600B39430 /* MarkPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkPoints.swift; sourceTree = "<group>"; };
-		B8D33B6D1FC74B6800F2C6EB /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
-		B8F16EF11FD9B82C0077B2E9 /* blackboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackboard.png; path = SuperVarioWohnen/Icons/blackboard.png; sourceTree = SOURCE_ROOT; };
-		B8F16EF21FD9B82C0077B2E9 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = SuperVarioWohnen/Icons/map.png; sourceTree = SOURCE_ROOT; };
-		B8F16EF31FD9B82C0077B2E9 /* documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = documents.png; path = SuperVarioWohnen/Icons/documents.png; sourceTree = SOURCE_ROOT; };
-		B8F16EF41FD9B82C0077B2E9 /* forum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = forum.png; path = SuperVarioWohnen/Icons/forum.png; sourceTree = SOURCE_ROOT; };
-		B8F16EF51FD9B82D0077B2E9 /* contacts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts.png; path = SuperVarioWohnen/Icons/contacts.png; sourceTree = SOURCE_ROOT; };
-		B8F16EF61FD9C54D0077B2E9 /* tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab.png; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,20 +74,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B8F16EF01FD9B8100077B2E9 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				B8F16EF61FD9C54D0077B2E9 /* tab.png */,
-				B8F16EF31FD9B82C0077B2E9 /* documents.png */,
-				B8F16EF41FD9B82C0077B2E9 /* forum.png */,
-				B8F16EF51FD9B82D0077B2E9 /* contacts.png */,
-				B8F16EF21FD9B82C0077B2E9 /* map.png */,
-				B8F16EF11FD9B82C0077B2E9 /* blackboard.png */,
-			);
-			name = Icons;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		F64615DD1FA8790C007EB0A0 = {
 			isa = PBXGroup;
 			children = (
@@ -128,16 +97,12 @@
 		F64615E81FA8790C007EB0A0 /* SuperVarioWohnen */ = {
 			isa = PBXGroup;
 			children = (
-				B8F16EF01FD9B8100077B2E9 /* Icons */,
 				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
 				F64615EB1FA8790D007EB0A0 /* ViewController.swift */,
 				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
 				F64615F01FA8790D007EB0A0 /* Assets.xcassets */,
 				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
 				F64615F51FA8790D007EB0A0 /* Info.plist */,
-				B8D33B6D1FC74B6800F2C6EB /* DocumentController.swift */,
-				B84F17841FCEBDEE00B39430 /* Map.swift */,
-				B84F17861FCECFF600B39430 /* MarkPoints.swift */,
 			);
 			path = SuperVarioWohnen;
 			sourceTree = "<group>";
@@ -267,13 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8C22FB81FD9C9400002A5CC /* contacts.png in Resources */,
 				F64615F41FA8790D007EB0A0 /* LaunchScreen.storyboard in Resources */,
 				F64615F11FA8790D007EB0A0 /* Assets.xcassets in Resources */,
-				B8C22FB61FD9C93B0002A5CC /* documents.png in Resources */,
-				B8C22FB91FD9C9420002A5CC /* map.png in Resources */,
-				B8C22FB71FD9C93D0002A5CC /* forum.png in Resources */,
-				B8C22FBA1FD9C9570002A5CC /* blackboard.png in Resources */,
 				F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,9 +261,6 @@
 			files = (
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
-				B84F17851FCEBDEE00B39430 /* Map.swift in Sources */,
-				B8D33B6E1FC74B6800F2C6EB /* DocumentController.swift in Sources */,
-				B84F17871FCECFF600B39430 /* MarkPoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +427,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -485,13 +442,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
