@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EB7F718201D361300963F9B /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F713201D361200963F9B /* FilesViewController.swift */; };
+		5EB7F719201D361300963F9B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F714201D361200963F9B /* WebViewController.swift */; };
+		5EB7F71A201D361300963F9B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F715201D361200963F9B /* Document.swift */; };
+		5EB7F71B201D361300963F9B /* DocumentsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F716201D361300963F9B /* DocumentsViewCell.swift */; };
+		5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F717201D361300963F9B /* DocumentsViewController.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
 		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EB7F713201D361200963F9B /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		5EB7F714201D361200963F9B /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		5EB7F715201D361200963F9B /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		5EB7F716201D361300963F9B /* DocumentsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsViewCell.swift; sourceTree = "<group>"; };
+		5EB7F717201D361300963F9B /* DocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EB7F71D201D362700963F9B /* Dokumente */ = {
+			isa = PBXGroup;
+			children = (
+				5EB7F715201D361200963F9B /* Document.swift */,
+				5EB7F716201D361300963F9B /* DocumentsViewCell.swift */,
+				5EB7F717201D361300963F9B /* DocumentsViewController.swift */,
+				5EB7F713201D361200963F9B /* FilesViewController.swift */,
+				5EB7F714201D361200963F9B /* WebViewController.swift */,
+			);
+			path = Dokumente;
+			sourceTree = "<group>";
+		};
 		F64615DD1FA8790C007EB0A0 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +119,7 @@
 		F64615E81FA8790C007EB0A0 /* SuperVarioWohnen */ = {
 			isa = PBXGroup;
 			children = (
+				5EB7F71D201D362700963F9B /* Dokumente */,
 				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
 				F64615EB1FA8790D007EB0A0 /* ViewController.swift */,
 				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
@@ -260,7 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
+				5EB7F71B201D361300963F9B /* DocumentsViewCell.swift in Sources */,
+				5EB7F718201D361300963F9B /* FilesViewController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
+				5EB7F719201D361300963F9B /* WebViewController.swift in Sources */,
+				5EB7F71A201D361300963F9B /* Document.swift in Sources */,
+				5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
