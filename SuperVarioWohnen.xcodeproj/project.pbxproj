@@ -12,6 +12,11 @@
 		5EB7F71A201D361300963F9B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F715201D361200963F9B /* Document.swift */; };
 		5EB7F71B201D361300963F9B /* DocumentsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F716201D361300963F9B /* DocumentsViewCell.swift */; };
 		5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7F717201D361300963F9B /* DocumentsViewController.swift */; };
+		9D72D2D4435FD50091264556 /* MarkPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72D2B0BEB7B47BD322AA48 /* MarkPoints.swift */; };
+		9D72D396DA8A8AB24FCE5CF1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72D556E8E36F4CBE1C286F /* Test.swift */; };
+		9D72D570F0DD0EA75499C1B1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72DA5F0466F908B300AD22 /* Map.swift */; };
+		9D72D67CBC16613B94EBC063 /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72DE9EDAC32F36D0DD7A5F /* DocumentController.swift */; };
+		9D72DA51ECFF45147F3FBC87 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72D003BB61AE9799DBE5BF /* SearchViewController.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
 		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
@@ -44,6 +49,11 @@
 		5EB7F715201D361200963F9B /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		5EB7F716201D361300963F9B /* DocumentsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsViewCell.swift; sourceTree = "<group>"; };
 		5EB7F717201D361300963F9B /* DocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
+		9D72D003BB61AE9799DBE5BF /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9D72D2B0BEB7B47BD322AA48 /* MarkPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkPoints.swift; sourceTree = "<group>"; };
+		9D72D556E8E36F4CBE1C286F /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		9D72DA5F0466F908B300AD22 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		9D72DE9EDAC32F36D0DD7A5F /* DocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +106,18 @@
 			path = Dokumente;
 			sourceTree = "<group>";
 		};
+		9D72D1F888991692B999604F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9D72D556E8E36F4CBE1C286F /* Test.swift */,
+				9D72D003BB61AE9799DBE5BF /* SearchViewController.swift */,
+				9D72D2B0BEB7B47BD322AA48 /* MarkPoints.swift */,
+				9D72DA5F0466F908B300AD22 /* Map.swift */,
+				9D72DE9EDAC32F36D0DD7A5F /* DocumentController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		F64615DD1FA8790C007EB0A0 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +148,7 @@
 				F64615F01FA8790D007EB0A0 /* Assets.xcassets */,
 				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
 				F64615F51FA8790D007EB0A0 /* Info.plist */,
+				9D72D1F888991692B999604F /* Map */,
 			);
 			path = SuperVarioWohnen;
 			sourceTree = "<group>";
@@ -289,6 +312,11 @@
 				5EB7F719201D361300963F9B /* WebViewController.swift in Sources */,
 				5EB7F71A201D361300963F9B /* Document.swift in Sources */,
 				5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */,
+				9D72D396DA8A8AB24FCE5CF1 /* Test.swift in Sources */,
+				9D72DA51ECFF45147F3FBC87 /* SearchViewController.swift in Sources */,
+				9D72D2D4435FD50091264556 /* MarkPoints.swift in Sources */,
+				9D72D570F0DD0EA75499C1B1 /* Map.swift in Sources */,
+				9D72D67CBC16613B94EBC063 /* DocumentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
