@@ -710,6 +710,65 @@
             </objects>
             <point key="canvasLocation" x="4136.8000000000002" y="-604.04797601199402"/>
         </scene>
+         <!--Kontakt-->
+                <scene sceneID="LkT-bv-YVs">
+                    <objects>
+                        <viewController id="SG2-DC-qIp" customClass="KontakteViewController" customModule="SuperVarioWohnen" customModuleProvider="target" sceneMemberID="viewController">
+                            <view key="view" contentMode="scaleToFill" id="Ycv-9c-hfa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXo-ga-DM4">
+                                        <rect key="frame" x="255" y="421" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="E-Mail"/>
+                                        <connections>
+                                            <action selector="sendEmailWithSender:" destination="SG2-DC-qIp" eventType="touchUpInside" id="CJr-26-NzH"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Adresse" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dmn-LT-tK7">
+                                        <rect key="frame" x="60" y="179" width="201" height="82"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="street-address"/>
+                                        <dataDetectorType key="dataDetectorTypes" address="YES"/>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="management_test_picture" translatesAutoresizingMaskIntoConstraints="NO" id="s7B-e1-vuQ">
+                                        <rect key="frame" x="60" y="76" width="201" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaK-zz-Kcm" userLabel="callBtn">
+                                        <rect key="frame" x="11" y="421" width="94" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Anruf"/>
+                                        <connections>
+                                            <action selector="call:" destination="SG2-DC-qIp" eventType="touchUpInside" id="D6A-mR-BuZ"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Öffnungszeiten" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Jm-lY-qAx">
+                                        <rect key="frame" x="60" y="269" width="201" height="106"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <viewLayoutGuide key="safeArea" id="V2J-e3-mD5"/>
+                            </view>
+                            <navigationItem key="navigationItem" title="Kontakt" id="Ftd-jg-N8q"/>
+                            <connections>
+                                <outlet property="AddressField" destination="dmn-LT-tK7" id="3In-ad-WHN"/>
+                                <outlet property="callBtn" destination="EaK-zz-Kcm" id="b3t-Fs-6Ue"/>
+                                <outlet property="mailBtn" destination="UXo-ga-DM4" id="CnH-yh-zXA"/>
+                                <outlet property="openingsField" destination="9Jm-lY-qAx" id="XXL-p8-UhZ"/>
+                            </connections>
+                        </viewController>
+                        <placeholder placeholderIdentifier="IBFirstResponder" id="m02-og-BuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </objects>
+                    <point key="canvasLocation" x="2340" y="132.04225352112675"/>
+                </scene>
     </scenes>
     <resources>
         <image name="map.png" width="16" height="16"/>
