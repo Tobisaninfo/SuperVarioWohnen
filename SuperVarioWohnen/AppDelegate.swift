@@ -42,7 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+func getQrCode() throws -> String? {
+    let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("qr.txt")
+    if let code = try? String(contentsOf: url) {
+        return code
+    }
+    
+    return nil
+}
