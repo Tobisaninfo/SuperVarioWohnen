@@ -62,6 +62,6 @@ class ScannerViewController: QRcodeController, QRcodeControllerDelegate {
     
     @IBAction func flashlightHandler(_ sender: Any) {
         isTorchEnable = !isTorchEnable
-        flashlightButton.setImage(isTorchEnable ? #imageLiteral(resourceName: "Flash-Filled") : #imageLiteral(resourceName: "Flash"), for: .normal)
+        flashlightButton.setImage(isTorchEnable ? #imageLiteral(resourceName: "flash--filled") : #imageLiteral(resourceName: "flash"), for: .normal)
     }
 }
