@@ -68,7 +68,7 @@ class ForumAnswerTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let dateFormatterGerman = DateFormatter()
         dateFormatterGerman.dateFormat = "dd.MM.YYYY HH:mm"
-        let dateString = dateFormatterGerman.string(from: forumAnswer[0].date)
+        let dateString = dateFormatterGerman.string(from: forumAnswer[section].date)
         
         return dateString
     }
