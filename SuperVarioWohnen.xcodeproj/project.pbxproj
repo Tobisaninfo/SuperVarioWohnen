@@ -36,6 +36,10 @@
 		F64615F41FA8790D007EB0A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */; };
 		F64615FF1FA8790D007EB0A0 /* SuperVarioWohnenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615FE1FA8790D007EB0A0 /* SuperVarioWohnenTests.swift */; };
 		F646160A1FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64616091FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift */; };
+		F671A9C7201DD3420023F6D9 /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F671A9C6201DD3420023F6D9 /* BoardTableViewController.swift */; };
+		F671A9C9201DD37D0023F6D9 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F671A9C8201DD37D0023F6D9 /* Board.swift */; };
+		F671A9CB201DD5D00023F6D9 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F671A9CA201DD5D00023F6D9 /* BoardTableViewCell.swift */; };
+		F671A9CD201DE3890023F6D9 /* BoardEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F671A9CC201DE3890023F6D9 /* BoardEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,10 @@
 		F64616051FA8790D007EB0A0 /* SuperVarioWohnenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperVarioWohnenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64616091FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperVarioWohnenUITests.swift; sourceTree = "<group>"; };
 		F646160B1FA8790D007EB0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F671A9C6201DD3420023F6D9 /* BoardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
+		F671A9C8201DD37D0023F6D9 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		F671A9CA201DD5D00023F6D9 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
+		F671A9CC201DE3890023F6D9 /* BoardEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +206,7 @@
 		F64615E81FA8790C007EB0A0 /* SuperVarioWohnen */ = {
 			isa = PBXGroup;
 			children = (
+				F671A9C5201DD0BB0023F6D9 /* Board */,
 				5EB10FD7201D40FD00171CC5 /* Kontakt */,
 				5EB7F71D201D362700963F9B /* Dokumente */,
 				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
@@ -229,6 +238,17 @@
 				F646160B1FA8790D007EB0A0 /* Info.plist */,
 			);
 			path = SuperVarioWohnenUITests;
+			sourceTree = "<group>";
+		};
+		F671A9C5201DD0BB0023F6D9 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				F671A9C6201DD3420023F6D9 /* BoardTableViewController.swift */,
+				F671A9C8201DD37D0023F6D9 /* Board.swift */,
+				F671A9CA201DD5D00023F6D9 /* BoardTableViewCell.swift */,
+				F671A9CC201DE3890023F6D9 /* BoardEntryViewController.swift */,
+			);
+			path = Board;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,8 +391,11 @@
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
 				5EB7F719201D361300963F9B /* WebViewController.swift in Sources */,
 				5EB7F71A201D361300963F9B /* Document.swift in Sources */,
+				F671A9CD201DE3890023F6D9 /* BoardEntryViewController.swift in Sources */,
+				F671A9C9201DD37D0023F6D9 /* Board.swift in Sources */,
 				5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */,
 				9D72D396DA8A8AB24FCE5CF1 /* Test.swift in Sources */,
+				F671A9C7201DD3420023F6D9 /* BoardTableViewController.swift in Sources */,
 				9D72DA51ECFF45147F3FBC87 /* SearchViewController.swift in Sources */,
 				9D72D2D4435FD50091264556 /* MarkPoints.swift in Sources */,
 				9D72D570F0DD0EA75499C1B1 /* Map.swift in Sources */,
@@ -385,6 +408,7 @@
 				9D72D1853754C5331F37CF74 /* ForumPostTableViewController.swift in Sources */,
 				5EB10FDF201D414B00171CC5 /* Management.swift in Sources */,
 				9D72D8565B59F6B776179842 /* ForumAnswerTableViewController.swift in Sources */,
+				F671A9CB201DD5D00023F6D9 /* BoardTableViewCell.swift in Sources */,
 				9D72DC449A7075D483EF47A4 /* ForumAnswerTableViewCell.swift in Sources */,
 				9D72D8A78922642014CCE12B /* LoginViewController.swift in Sources */,
 				9D72D96B2394BB21CD29C6D7 /* QRcodeController.swift in Sources */,
@@ -555,10 +579,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -570,10 +594,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+				DEVELOPMENT_TEAM = GSS77QYM85;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
