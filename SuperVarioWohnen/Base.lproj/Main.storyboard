@@ -18,6 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.10196078431372549" green="0.69411764705882351" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="tP0-Q6-ouo" kind="relationship" relationship="viewControllers" id="xV9-jL-qrk"/>
@@ -1129,15 +1134,15 @@
         <image name="Layer_01" width="623" height="1055"/>
         <image name="QR_Code_web" width="1000" height="1000"/>
         <image name="Road_Icon" width="25" height="25"/>
-        <image name="blackboard" width="37" height="37"/>
+        <image name="blackboard" width="25" height="25"/>
         <image name="car" width="25" height="25"/>
         <image name="card" width="85" height="85"/>
-        <image name="contacts" width="37" height="37"/>
-        <image name="documents" width="37" height="37"/>
+        <image name="contacts" width="25" height="25"/>
+        <image name="documents" width="25" height="25"/>
         <image name="flash" width="25" height="25"/>
-        <image name="forum" width="37" height="37"/>
+        <image name="forum" width="25" height="25"/>
         <image name="management_test_picture" width="1500" height="526"/>
-        <image name="map" width="31" height="30"/>
+        <image name="map" width="25" height="25"/>
         <image name="pdf" width="128" height="128"/>
     </resources>
     <color key="tintColor" red="0.1019607843" green="0.69411764710000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
