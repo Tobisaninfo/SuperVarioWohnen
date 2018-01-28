@@ -27,11 +27,14 @@
 		9D72DBD44DA880A47562D2CE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72DC231E762C1FF1DBB374 /* ScannerViewController.swift */; };
 		9D72DC449A7075D483EF47A4 /* ForumAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D72DFB8FC694B34367F0298 /* ForumAnswerTableViewCell.swift */; };
 		F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615E91FA8790D007EB0A0 /* AppDelegate.swift */; };
-		F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615EB1FA8790D007EB0A0 /* ViewController.swift */; };
 		F64615EF1FA8790D007EB0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615ED1FA8790D007EB0A0 /* Main.storyboard */; };
 		F64615F41FA8790D007EB0A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */; };
 		F64615FF1FA8790D007EB0A0 /* SuperVarioWohnenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64615FE1FA8790D007EB0A0 /* SuperVarioWohnenTests.swift */; };
 		F646160A1FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64616091FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift */; };
+		F6F49DF3201E17A30001176C /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F49DEF201E17A30001176C /* BoardTableViewController.swift */; };
+		F6F49DF4201E17A30001176C /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F49DF0201E17A30001176C /* Board.swift */; };
+		F6F49DF5201E17A30001176C /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F49DF1201E17A30001176C /* BoardTableViewCell.swift */; };
+		F6F49DF6201E17A30001176C /* BoardEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F49DF2201E17A30001176C /* BoardEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +76,6 @@
 		9D72DFB8FC694B34367F0298 /* ForumAnswerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForumAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		F64615E61FA8790C007EB0A0 /* SuperVarioWohnen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVarioWohnen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64615E91FA8790D007EB0A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F64615EB1FA8790D007EB0A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F64615EE1FA8790D007EB0A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F64615F31FA8790D007EB0A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F64615F51FA8790D007EB0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,10 @@
 		F64616051FA8790D007EB0A0 /* SuperVarioWohnenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperVarioWohnenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64616091FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperVarioWohnenUITests.swift; sourceTree = "<group>"; };
 		F646160B1FA8790D007EB0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F49DEF201E17A30001176C /* BoardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewController.swift; path = SuperVarioWohnen/Board/BoardTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		F6F49DF0201E17A30001176C /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = SuperVarioWohnen/Board/Board.swift; sourceTree = SOURCE_ROOT; };
+		F6F49DF1201E17A30001176C /* BoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewCell.swift; path = SuperVarioWohnen/Board/BoardTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		F6F49DF2201E17A30001176C /* BoardEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardEntryViewController.swift; path = SuperVarioWohnen/Board/BoardEntryViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,16 +193,16 @@
 			isa = PBXGroup;
 			children = (
 				5E183A91201DEC3C00EDD366 /* Assets.xcassets */,
-				5EB10FD7201D40FD00171CC5 /* Kontakt */,
+				F6F49DEE201E17860001176C /* Board */,
 				5EB7F71D201D362700963F9B /* Dokumente */,
-				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
-				F64615EB1FA8790D007EB0A0 /* ViewController.swift */,
-				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
-				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
-				F64615F51FA8790D007EB0A0 /* Info.plist */,
-				9D72D1F888991692B999604F /* Map */,
 				9D72DDBD01E44DC3EFF24E73 /* Forum */,
+				5EB10FD7201D40FD00171CC5 /* Kontakt */,
+				9D72D1F888991692B999604F /* Map */,
 				9D72D9BE75984FF12A191790 /* QR-Code */,
+				F64615F51FA8790D007EB0A0 /* Info.plist */,
+				F64615F21FA8790D007EB0A0 /* LaunchScreen.storyboard */,
+				F64615ED1FA8790D007EB0A0 /* Main.storyboard */,
+				F64615E91FA8790D007EB0A0 /* AppDelegate.swift */,
 			);
 			path = SuperVarioWohnen;
 			sourceTree = "<group>";
@@ -217,6 +223,18 @@
 				F646160B1FA8790D007EB0A0 /* Info.plist */,
 			);
 			path = SuperVarioWohnenUITests;
+			sourceTree = "<group>";
+		};
+		F6F49DEE201E17860001176C /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				F6F49DF0201E17A30001176C /* Board.swift */,
+				F6F49DF2201E17A30001176C /* BoardEntryViewController.swift */,
+				F6F49DF1201E17A30001176C /* BoardTableViewCell.swift */,
+				F6F49DEF201E17A30001176C /* BoardTableViewController.swift */,
+			);
+			name = Board;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,14 +371,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F64615EC1FA8790D007EB0A0 /* ViewController.swift in Sources */,
 				5EB7F71B201D361300963F9B /* DocumentsViewCell.swift in Sources */,
 				5EB7F718201D361300963F9B /* FilesViewController.swift in Sources */,
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
+				F6F49DF4201E17A30001176C /* Board.swift in Sources */,
 				5EB7F719201D361300963F9B /* WebViewController.swift in Sources */,
 				5EB7F71A201D361300963F9B /* Document.swift in Sources */,
+				F6F49DF3201E17A30001176C /* BoardTableViewController.swift in Sources */,
 				5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */,
 				9D72D570F0DD0EA75499C1B1 /* Map.swift in Sources */,
+				F6F49DF6201E17A30001176C /* BoardEntryViewController.swift in Sources */,
 				5EB10FDE201D414B00171CC5 /* KontakteViewController.swift in Sources */,
 				9D72D9FC1DF3E6BA9FEDE074 /* ForumPost.swift in Sources */,
 				9D72D234839F184EF47D7ED4 /* NewReplyViewController.swift in Sources */,
@@ -368,6 +388,7 @@
 				9D72D103AFB9CDDECB6D33ED /* ForumPostTableViewCell.swift in Sources */,
 				9D72D1853754C5331F37CF74 /* ForumPostTableViewController.swift in Sources */,
 				5EB10FDF201D414B00171CC5 /* Management.swift in Sources */,
+				F6F49DF5201E17A30001176C /* BoardTableViewCell.swift in Sources */,
 				9D72D8565B59F6B776179842 /* ForumAnswerTableViewController.swift in Sources */,
 				9D72DC449A7075D483EF47A4 /* ForumAnswerTableViewCell.swift in Sources */,
 				9D72D8A78922642014CCE12B /* LoginViewController.swift in Sources */,
