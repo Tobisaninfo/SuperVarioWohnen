@@ -44,6 +44,7 @@ class ScannerViewController: QRcodeController, QRcodeControllerDelegate {
                 print(response.statusCode)
                 if  response.statusCode == 200 {
                     self.writeCode(code: code)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
