@@ -584,8 +584,14 @@
                                 <segment title="Alles"/>
                                 <segment title="Neues"/>
                             </segments>
+                            <connections>
+                                <action selector="toggleButtonHandler:" destination="KrF-wp-qzf" eventType="valueChanged" id="yXT-Sb-JMd"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="toggleButton" destination="Bnp-yB-47q" id="mJT-FK-2Vp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjD-di-DPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

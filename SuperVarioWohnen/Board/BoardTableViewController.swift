@@ -12,11 +12,29 @@ class BoardTableViewController: UITableViewController {
     
     private let url = "https://thecodelabs.de:2530/board"
     
+    @IBOutlet weak var toggleButton: UISegmentedControl!
     var entries = [Board]()
     var selectedEntry = 0
+    var showUnReadEntries = true
+    
+    var readedEntries = Set<Int>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("entries.json")
+            let data = try Data(contentsOf: url)
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+            
+            for element in json {
+                if let id = element as? Int {
+                    readedEntries.insert(id)
+                }
+            }
+        } catch {
+            print(error)
+        }
         
         loadBoardData()
     }
@@ -34,7 +52,7 @@ class BoardTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        return entryFiltered.count
     }
     
     
@@ -42,10 +60,12 @@ class BoardTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boardCell", for: indexPath)
         
         if let cell = cell as? BoardTableViewCell {
-            let board = entries[indexPath.row]
+            let board = entryFiltered[indexPath.row]
             
             cell.titleLabel.text = board.title
             cell.messageLabel.text = board.message
+            
+            cell.makerImageView.isHidden = readedEntries.contains(board.id)
             
             let dateFormatterGerman = DateFormatter()
             dateFormatterGerman.dateFormat = "dd.MM.YYYY"
@@ -56,44 +76,27 @@ class BoardTableViewController: UITableViewController {
         return cell
     }
     
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    @IBAction func toggleButtonHandler(_ sender: Any) {
+        if toggleButton.selectedSegmentIndex == 0 {
+            showUnReadEntries = true
+        } else if toggleButton.selectedSegmentIndex == 1 {
+            showUnReadEntries = false
+        }
+        tableView.reloadData()
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEntry = indexPath.row
+        if let cell = tableView.cellForRow(at: indexPath) as? BoardTableViewCell {
+            cell.makerImageView.isHidden = true
+            readedEntries.insert(entryFiltered[indexPath.row].id)
+            
+            do {
+                try saveReadedIds()
+            } catch {
+                print(error)
+            }
+        }
     }
     
     
@@ -159,5 +162,22 @@ class BoardTableViewController: UITableViewController {
                 task.resume()
             }
         }
+    }
+    
+    var entryFiltered: [Board] {
+        if (showUnReadEntries) {
+            return entries
+        } else {
+            return entries.filter {
+                !self.readedEntries.contains($0.id)
+            }
+        }
+    }
+    
+    func saveReadedIds() throws {
+        let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("entries.json")
+        
+        let json = try JSONSerialization.data(withJSONObject: Array(readedEntries), options: .prettyPrinted)
+        try json.write(to: url)
     }
 }
