@@ -6,10 +6,11 @@
 //  Copyright © 2017 Tobias. All rights reserved.
 //
 
+// https://images.techhive.com/images/article/2016/04/os-x-folder-icon-100657987-orig.jpg
 
 import UIKit
 
-class DocumentsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DocumentsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -18,10 +19,9 @@ class DocumentsViewController: UIViewController, UICollectionViewDelegate, UICol
     var documents: [Document] = []
     
     ///server Data
-    let yourAuthorizationToken = "ztiuohijopk" // whatever is your token
     let urlString = "https://thecodelabs.de:2530/documents"
     
-    let folderNames = ["Rechnungen", "Ratgeber", "Grundriss", "Mietvertrag"]
+    private let folderNames = ["Rechnungen", "Ratgeber", "Grundriss", "Mietvertrag"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,31 +58,40 @@ class DocumentsViewController: UIViewController, UICollectionViewDelegate, UICol
         return cell
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedFolder = indexPath.row
         self.performSegue(withIdentifier: "fileSegue", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // MARK: - Layout
+    
+    private let columnCount = 2
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
+            return CGSize()
+        }
         
+        let viewWidth =  collectionView.frame.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing * CGFloat(columnCount - 1)
+        let itemSize = viewWidth / CGFloat(columnCount)
+        return CGSize(width: itemSize, height: itemSize)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fileSegue", let selectedFolder = selectedFolder {
-            let viewVC = segue.destination as! FilesViewController
-            viewVC.documents = documents.filter() { $0.folderName == folderNames[selectedFolder]}
+            let destinationViewController = segue.destination as! FilesViewController
+            destinationViewController.folderName = folderNames[selectedFolder]
+            destinationViewController.documents = documents.filter() { $0.folderName == folderNames[selectedFolder]}
         }
     }
     
     
     func downloadJsonFromUrl(urlString: String) {
-        if let url = URL(string:urlString) {
+        if let url = URL(string:urlString), let token = try? getQrCode() {
             let payload = Data()
             var request = URLRequest(url:url)
             request.httpMethod = "GET"
-            request.setValue(yourAuthorizationToken, forHTTPHeaderField: "auth")
+            request.setValue(token, forHTTPHeaderField: "auth")
             request.httpBody = payload
             
             self.documents = []

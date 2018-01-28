@@ -7,10 +7,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "Forum_75x75.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Foruml_100x100.png",
       "scale" : "3x"
     }
   ],

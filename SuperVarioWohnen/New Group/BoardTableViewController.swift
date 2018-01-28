@@ -36,6 +36,8 @@ class BoardTableViewController: UITableViewController {
             print(error)
         }
         
+        title = "Neugkeiten"
+        
         loadBoardData()
     }
     
@@ -64,6 +66,7 @@ class BoardTableViewController: UITableViewController {
             
             cell.titleLabel.text = board.title
             cell.messageLabel.text = board.message
+            cell.messageLabel.sizeToFit()
             
             cell.makerImageView.isHidden = readedEntries.contains(board.id)
             
@@ -91,6 +94,8 @@ class BoardTableViewController: UITableViewController {
             cell.makerImageView.isHidden = true
             readedEntries.insert(entryFiltered[indexPath.row].id)
             
+            performSegue(withIdentifier: "entryDetailSegue", sender: self)
+            
             do {
                 try saveReadedIds()
             } catch {
@@ -106,7 +111,7 @@ class BoardTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "entryDetailSegue" {
             if let destinationViewController = segue.destination as? BoardEntryViewController {
-                destinationViewController.entry = entries[selectedEntry]
+                destinationViewController.entry = entryFiltered[selectedEntry]
             }
         }
     }

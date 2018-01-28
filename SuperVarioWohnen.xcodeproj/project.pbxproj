@@ -85,10 +85,10 @@
 		F64616051FA8790D007EB0A0 /* SuperVarioWohnenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperVarioWohnenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64616091FA8790D007EB0A0 /* SuperVarioWohnenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperVarioWohnenUITests.swift; sourceTree = "<group>"; };
 		F646160B1FA8790D007EB0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6F49DEF201E17A30001176C /* BoardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewController.swift; path = SuperVarioWohnen/Board/BoardTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		F6F49DF0201E17A30001176C /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = SuperVarioWohnen/Board/Board.swift; sourceTree = SOURCE_ROOT; };
-		F6F49DF1201E17A30001176C /* BoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewCell.swift; path = SuperVarioWohnen/Board/BoardTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		F6F49DF2201E17A30001176C /* BoardEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardEntryViewController.swift; path = SuperVarioWohnen/Board/BoardEntryViewController.swift; sourceTree = SOURCE_ROOT; };
+        F6F49DEF201E17A30001176C /* BoardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewController.swift; path = SuperVarioWohnen/Board/BoardTableViewController.swift; sourceTree = SOURCE_ROOT; };
+        F6F49DF0201E17A30001176C /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = SuperVarioWohnen/Board/Board.swift; sourceTree = SOURCE_ROOT; };
+        F6F49DF1201E17A30001176C /* BoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardTableViewCell.swift; path = SuperVarioWohnen/Board/BoardTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+        F6F49DF2201E17A30001176C /* BoardEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardEntryViewController.swift; path = SuperVarioWohnen/Board/BoardEntryViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				5E183A91201DEC3C00EDD366 /* Assets.xcassets */,
-				F6F49DEE201E17860001176C /* Board */,
+                F6F49DEE201E17860001176C /* Board */,
 				5EB7F71D201D362700963F9B /* Dokumente */,
 				9D72DDBD01E44DC3EFF24E73 /* Forum */,
 				5EB10FD7201D40FD00171CC5 /* Kontakt */,
@@ -225,7 +225,7 @@
 			path = SuperVarioWohnenUITests;
 			sourceTree = "<group>";
 		};
-		F6F49DEE201E17860001176C /* Board */ = {
+        F6F49DEE201E17860001176C /* Board */ = {
 			isa = PBXGroup;
 			children = (
 				F6F49DF0201E17A30001176C /* Board.swift */,
@@ -560,10 +560,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+                DEVELOPMENT_TEAM = 6EV2E58M9V;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+                PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,10 +575,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6EV2E58M9V;
+                DEVELOPMENT_TEAM = 6EV2E58M9V;
 				INFOPLIST_FILE = SuperVarioWohnen/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
+                PRODUCT_BUNDLE_IDENTIFIER = de.tobias.SuperVarioWohnen4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -22,6 +22,8 @@ class BoardEntryViewController: UIViewController {
             titleLabel.text = entry.title
             messageLabel.text = entry.message
         }
+        
+        title = "Details"
     }
 
     override func didReceiveMemoryWarning() {

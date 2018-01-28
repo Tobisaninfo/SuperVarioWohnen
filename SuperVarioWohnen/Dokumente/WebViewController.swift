@@ -14,7 +14,6 @@ class WebViewController:  UIViewController{
     
     @IBOutlet weak var webView: UIWebView!
     
-    let token = "ztiuohijopk"
     let urlString = "https://thecodelabs.de:2530/documents/"
     
     var document: Document?
@@ -23,6 +22,7 @@ class WebViewController:  UIViewController{
         super.viewDidLoad()
         
         if let document = document {
+            self.navigationItem.title = document.name
             downloadFile(urlString: urlString, document: document)
         }
         setupViews()
@@ -30,7 +30,7 @@ class WebViewController:  UIViewController{
     
     // MARK: - download pdf Document
     func downloadFile(urlString: String, document: Document)  {
-        if let url = URL(string: urlString.appending("\(document.id)")) {
+        if let url = URL(string: urlString.appending("\(document.id)")), let token = try? getQrCode() {
             var request = URLRequest(url: url)
             
             request.setValue(token, forHTTPHeaderField: "auth")
