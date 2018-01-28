@@ -294,12 +294,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="bcw-n6-dsX">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="ZvX-F1-fC0">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Road_Icon" id="ZvX-F1-fC0">
                             <connections>
                                 <action selector="route:" destination="buc-jg-PEj" id="q6S-SZ-vPf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="8b7-zS-wfr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="car" id="8b7-zS-wfr">
                             <connections>
                                 <action selector="switchDirect:" destination="buc-jg-PEj" id="Izi-Eh-5YL"/>
                             </connections>
@@ -307,6 +307,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="gobySwitch" destination="8b7-zS-wfr" id="SHd-7e-9fz"/>
                         <outlet property="mapView" destination="wMl-aZ-4NY" id="y3a-aQ-Tsi"/>
                         <outlet property="naviCon" destination="bcw-n6-dsX" id="cU1-qw-v2I"/>
                         <outlet property="popupView" destination="y7h-EQ-5Mp" id="kl2-0r-Ex1"/>
@@ -872,6 +873,8 @@
         <image name="10" width="512" height="512"/>
         <image name="Flash" width="16" height="16"/>
         <image name="Logo" width="16" height="16"/>
+        <image name="Road_Icon" width="25" height="25"/>
+        <image name="car" width="25" height="25"/>
         <image name="card" width="85" height="85"/>
         <image name="contacts" width="44" height="30"/>
         <image name="documents" width="31" height="30"/>

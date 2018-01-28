@@ -12,6 +12,7 @@ import CoreLocation
 class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMapViewDelegate,UIGestureRecognizerDelegate, MKLocalSearchCompleterDelegate,UITableViewDelegate, UITableViewDataSource {
 
 
+    @IBOutlet weak var gobySwitch: UIBarButtonItem!
     @IBOutlet var naviCon: UINavigationItem!
     let searchBar = UISearchBar()
     var tableView: UITableView!
@@ -40,7 +41,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         initTableView()
         initGesture()
         initPopupView()
-        searchBar.showsCancelButton=true
+        searchBar.showsCancelButton=false
         searchCompleter.delegate = self
         searchBar.delegate = self
         //timeRoute!.text!="test" //Label text ist nil
@@ -173,6 +174,7 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
         if(searchMode){
             searchMode=false
             searchBar.placeholder="Route..."
+            searchBar.showsCancelButton=true
         }
         else{
             searchMode=true
@@ -188,9 +190,11 @@ class Map: UIViewController, CLLocationManagerDelegate,UISearchBarDelegate,MKMap
     @IBAction func switchDirect(_ sender: UIBarButtonItem) {
         if(directType.isSubset(of: MKDirectionsTransportType.automobile)){
             directType = MKDirectionsTransportType.walking
+            gobySwitch.image=#imageLiteral(resourceName: "car")
         }
         else{
             directType = MKDirectionsTransportType.automobile
+            gobySwitch.image=#imageLiteral(resourceName: "walk")
         }
         mapView.removeOverlays(mapView.overlays)
         routeShow()

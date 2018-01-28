@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         // ztiuohijopk
         let defaults = UserDefaults.standard
         let code: String? = defaults.string(forKey: "qr")
-        if(code == nil) {
+        if(code != nil) {
             self.performSegue(withIdentifier: "loginSuccSeque", sender: self)
         }
     }

@@ -130,7 +130,7 @@ class ForumPostTableViewController: UITableViewController {
                             let datestr = postElmt["date"] as! String
                             let dateformatter = DateFormatter()
                             dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-                            let date = dateformatter.date(from: datestr)!
+                            let date = dateformatter.date(from: datestr)
                             let tenant = postElmt["tenant"] as! [String : Any]
                             let name = tenant["name"] as! String
                             let lastname = tenant["lastName"] as! String
@@ -138,7 +138,7 @@ class ForumPostTableViewController: UITableViewController {
                             let title = postElmt["title"] as! String
                             let message = postElmt["message"] as! String
                             let id = postElmt["id"] as! Int
-                            guard let forumpost = ForumPost(id: id, user: user, title: title, postText: message, date: date)
+                            guard let forumpost = ForumPost(id: id, user: user, title: title, postText: message, date: date!)
                                 else{
                                     fatalError("Fehler bei der Instanziierung von Post Objekte!!")
                             }
