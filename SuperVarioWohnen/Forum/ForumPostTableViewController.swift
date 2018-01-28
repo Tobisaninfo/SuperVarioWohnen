@@ -116,6 +116,7 @@ class ForumPostTableViewController: UITableViewController {
     
     //MARK: Private Methods
     private func loadForumPost() {
+        forumPosts = []
         var request = URLRequest(url: url!)
         request.setValue("ztiuohijopk", forHTTPHeaderField: "auth")
         request.httpMethod = "GET"
@@ -142,10 +143,6 @@ class ForumPostTableViewController: UITableViewController {
                                 else{
                                     fatalError("Fehler bei der Instanziierung von Post Objekte!!")
                             }
-                            /*print(user)
-                            print(title)
-                            print(message)
-                            print(date)*/
                             self.forumPosts += [forumpost]
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -160,13 +157,6 @@ class ForumPostTableViewController: UITableViewController {
             }
         }
         session.resume()
-        /*for _ in 1 ..< 11 {
-            guard let forumPost = ForumPost(user: "Gires Ntchouayang", title: "Hier ist der Titel", postText: "Lorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizouorem ipsum dolek nomia dilup dlai fgirsup nako riad olem dorek sizou de sizo", date: Date.init())
-                else{
-                    fatalError("Konnte kein Post erzeugen...")
-            }
-            forumPosts += [forumPost]
-        }*/
     }
 
 }
