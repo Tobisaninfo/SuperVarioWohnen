@@ -24,12 +24,14 @@ class BoardTableViewController: UITableViewController {
         
         do {
             let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("entries.json")
-            let data = try Data(contentsOf: url)
-            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
-            
-            for element in json {
-                if let id = element as? Int {
-                    readedEntries.insert(id)
+            if FileManager.default.fileExists(atPath: url.path) {
+                let data = try Data(contentsOf: url)
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [Any]
+                
+                for element in json {
+                    if let id = element as? Int {
+                        readedEntries.insert(id)
+                    }
                 }
             }
         } catch {
