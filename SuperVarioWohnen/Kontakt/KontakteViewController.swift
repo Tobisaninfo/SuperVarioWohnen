@@ -20,11 +20,9 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getManagementFromAuth()
+        // getManagementFromAuth()
         // For development purposes; Remove later !!!
-        management = Management(id: "1",name: "Howoge", postcode: "13055", place: "Berlin", street: "Testgasse 1",
-                                phone: "03011223344", mail: "howoge@test.de",
-                                openings_weekdays: "Mo-Fr: 8:00 - 17:00?", openings_weekends: "")
+        management = Management(id: 1,name: "Howoge", postcode: "10318", place: "Berlin", street: "Treskowallee 109",telefon: "030 54643200", mail: "info@howoge.de",openings_weekdays: "Mo-Fr: 8:00 - 17:00", openings_weekends: "Sa: 10:00- 14:00")
         
         setButtonStates()
         populateTextFields()
@@ -77,7 +75,7 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
             if self.management?.mail == nil {
                 mailBtn.isEnabled=false
             }
-            if self.management?.phone == nil {
+            if self.management?.telefon == nil {
                 callBtn.isEnabled = false
             }
         }
@@ -89,10 +87,14 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
         let street = (self.management?.street)!
         let zipCity = (self.management?.place)!+" "+(self.management?.postcode)!
         AddressField.insertText(name + "\n" + street + "\n" + zipCity)
+        let o1 = self.management?.openings_weekdays
+        let o2 = self.management?.openings_weekends
+        openingsField.text.append("\n"+o1!+"\n"+o2!)
+        
     }
     
     @IBAction func call(_ sender: Any) {
-        let tel: URL = URL(string: "telprompt://\((self.management?.phone)!)")!
+        let tel: URL = URL(string: "telprompt://\((self.management?.telefon)!)")!
         UIApplication.shared.open(tel);
     }
 

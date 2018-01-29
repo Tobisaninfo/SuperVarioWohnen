@@ -9,12 +9,12 @@
 import Foundation
 
 struct Management: Decodable {
-    let id: String
+    let id: Int
     let name : String
     let postcode : String
     let place : String
     let street : String
-    let phone : String?
+    let telefon : String?
     let mail : String?
     let openings_weekdays : String?
     let openings_weekends : String?
