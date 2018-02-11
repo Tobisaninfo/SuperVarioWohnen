@@ -121,7 +121,6 @@ class BoardTableViewController: UITableViewController {
     
     func loadBoardData() {
         if let token = try? getQrCode() {
-            
             if let url = URL(string: self.url) {
                 let payload = Data()
                 var request = URLRequest(url:url)

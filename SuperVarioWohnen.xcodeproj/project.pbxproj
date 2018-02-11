@@ -35,6 +35,8 @@
 		F6760B9A201E358C00DD3D9E /* BoardEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6760B96201E358C00DD3D9E /* BoardEntryViewController.swift */; };
 		F6760B9B201E358C00DD3D9E /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6760B97201E358C00DD3D9E /* BoardTableViewCell.swift */; };
 		F6760B9C201E358C00DD3D9E /* BoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6760B98201E358C00DD3D9E /* BoardTableViewController.swift */; };
+		F6CD23BD20308AE5004AE964 /* ForumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD23BC20308AE5004AE964 /* ForumTableViewController.swift */; };
+		F6CD23BF20308B00004AE964 /* ForumCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD23BE20308B00004AE964 /* ForumCategory.swift */; };
 		F6F49DF8201E19C30001176C /* TopAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F49DF7201E19C30001176C /* TopAlignedLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		F6760B96201E358C00DD3D9E /* BoardEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardEntryViewController.swift; sourceTree = "<group>"; };
 		F6760B97201E358C00DD3D9E /* BoardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		F6760B98201E358C00DD3D9E /* BoardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTableViewController.swift; sourceTree = "<group>"; };
+		F6CD23BC20308AE5004AE964 /* ForumTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumTableViewController.swift; sourceTree = "<group>"; };
+		F6CD23BE20308B00004AE964 /* ForumCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCategory.swift; sourceTree = "<group>"; };
 		F6F49DF7201E19C30001176C /* TopAlignedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,13 +164,9 @@
 		9D72DDBD01E44DC3EFF24E73 /* Forum */ = {
 			isa = PBXGroup;
 			children = (
-				9D72DA49DDAB933040B5A338 /* ForumPost.swift */,
-				9D72D3403F753D71FD0E33C8 /* NewReplyViewController.swift */,
-				9D72D315849383467D7405CA /* NewPostViewController.swift */,
-				9D72D10860EDA4041C702D0F /* ForumPostTableViewCell.swift */,
-				9D72D6DC3C47C0B7FABC0725 /* ForumPostTableViewController.swift */,
-				9D72DDF9A00C43A5F8D68440 /* ForumAnswerTableViewController.swift */,
-				9D72DFB8FC694B34367F0298 /* ForumAnswerTableViewCell.swift */,
+				F6CD23C020308FE2004AE964 /* Category */,
+				F6CD23C120308FED004AE964 /* Posts */,
+				F6CD23C220308FF2004AE964 /* Reply */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -237,6 +237,36 @@
 				F6760B98201E358C00DD3D9E /* BoardTableViewController.swift */,
 			);
 			path = Board;
+			sourceTree = "<group>";
+		};
+		F6CD23C020308FE2004AE964 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F6CD23BE20308B00004AE964 /* ForumCategory.swift */,
+				F6CD23BC20308AE5004AE964 /* ForumTableViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F6CD23C120308FED004AE964 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				9D72DA49DDAB933040B5A338 /* ForumPost.swift */,
+				9D72D10860EDA4041C702D0F /* ForumPostTableViewCell.swift */,
+				9D72D6DC3C47C0B7FABC0725 /* ForumPostTableViewController.swift */,
+				9D72D315849383467D7405CA /* NewPostViewController.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		F6CD23C220308FF2004AE964 /* Reply */ = {
+			isa = PBXGroup;
+			children = (
+				9D72DFB8FC694B34367F0298 /* ForumAnswerTableViewCell.swift */,
+				9D72DDF9A00C43A5F8D68440 /* ForumAnswerTableViewController.swift */,
+				9D72D3403F753D71FD0E33C8 /* NewReplyViewController.swift */,
+			);
+			path = Reply;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +409,8 @@
 				F64615EA1FA8790D007EB0A0 /* AppDelegate.swift in Sources */,
 				5EB7F719201D361300963F9B /* WebViewController.swift in Sources */,
 				F6760B9A201E358C00DD3D9E /* BoardEntryViewController.swift in Sources */,
+				F6CD23BD20308AE5004AE964 /* ForumTableViewController.swift in Sources */,
+				F6CD23BF20308B00004AE964 /* ForumCategory.swift in Sources */,
 				5EB7F71A201D361300963F9B /* Document.swift in Sources */,
 				F6F49DF8201E19C30001176C /* TopAlignedLabel.swift in Sources */,
 				5EB7F71C201D361300963F9B /* DocumentsViewController.swift in Sources */,

@@ -15,7 +15,7 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var titelLabel: UITextField!
     @IBOutlet weak var sendeButton: UIButton!
     
-    let url = URL(string: "https://thecodelabs.de:2530/forum/1")
+    var category: ForumCategory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,26 +56,29 @@ class NewPostViewController: UIViewController {
     }
     
     func postMessage(payload: String){
-        /*var request = URLRequest(url: url!)
-        request.setValue("ztiuohijopk", forHTTPHeaderField: "auth")
-        request.setValue("application/json", forHTTPHeaderField: "Content-type")
-        request.httpMethod = "POST"
-        request.httpBody = payload.data(using: String.Encoding.utf8)
-        
-        let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let data = data {
-                print(data.description)
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-            if let response = response as? HTTPURLResponse {
-                if response.statusCode != 200 {
-                    self.showToast(message: "An Error has occured, please try again Later")
-                    return
+        if let token = try? getQrCode(), let category = category, let url = getUrl(endPoint: "/forum/\(category.id)") {
+            var request = URLRequest(url: url)
+            request.setValue(token, forHTTPHeaderField: "auth")
+            request.setValue("application/json", forHTTPHeaderField: "Content-type")
+            request.httpMethod = "POST"
+            request.httpBody = payload.data(using: String.Encoding.utf8)
+            
+            let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let data = data {
+                    print(data.description)
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+                if let response = response as? HTTPURLResponse {
+                    if response.statusCode != 200 {
+                        DispatchQueue.main.async {
+                            self.showToast(message: "An Error has occured, please try again Later")
+                        }
+                    }
                 }
             }
+            session.resume()
         }
-        session.resume()*/
     }
     
     func showToast(message : String) {
@@ -96,16 +99,5 @@ class NewPostViewController: UIViewController {
             toastLabel.removeFromSuperview()
         })
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
