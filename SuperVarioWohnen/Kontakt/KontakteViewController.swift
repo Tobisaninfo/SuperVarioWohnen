@@ -20,18 +20,20 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getManagementFromAuth()
+        getManagementFromAuth(){m in
+            self.management = m
+        }
         setButtonStates()
         populateTextFields()
-
+        
     }
-  
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func getManagementFromAuth(){
+    func getManagementFromAuth(completion:@escaping (Management)->()){
         let code: String? = "ztiuohijopk"
         if code == nil {return}
         let url = "https://thecodelabs.de:2530/management"
@@ -58,9 +60,8 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
                             let id = j["id"] as! Int
                             let mail = j["mail"] as! String?
                             let m = Management(id: id, name: name, postcode: postcode, place: place, street: street, telefon: telefon, mail: mail, openings_weekdays: nil, openings_weekends: nil)
-                            DispatchQueue.main.async {
-                                self.management = m
-                            }
+                            
+                            completion(m)
                         }
                     }
                 } catch let error as NSError {
@@ -106,7 +107,7 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
         let tel: URL = URL(string: "telprompt://\((self.management?.telefon)!)")!
         UIApplication.shared.open(tel);
     }
-
+    
     @IBAction func sendEmail(sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let mailVC = MFMailComposeViewController()

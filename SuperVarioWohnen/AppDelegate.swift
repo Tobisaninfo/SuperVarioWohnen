@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+        do {
+            let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("qr.txt")
+            try "ztiuohijopk".write(to: url, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
+        }
         
         return true
     }
@@ -51,4 +57,10 @@ func getQrCode() throws -> String? {
     }
     
     return nil
+}
+
+let SUPERVARIO_BASE_URL = "https://thecodelabs.de:2530"
+
+func getUrl(endPoint: String) -> URL? {
+    return URL(string: SUPERVARIO_BASE_URL)?.appendingPathComponent(endPoint)
 }
