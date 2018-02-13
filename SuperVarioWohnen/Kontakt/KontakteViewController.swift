@@ -20,10 +20,7 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // getManagementFromAuth()
-        // For development purposes; Remove later !!!
-        management = Management(id: 1,name: "Howoge", postcode: "10318", place: "Berlin", street: "Treskowallee 109",telefon: "030 54643200", mail: "info@howoge.de",openings_weekdays: "Mo-Fr: 8:00 - 17:00", openings_weekends: "Sa: 10:00- 14:00")
-        
+        getManagementFromAuth()
         setButtonStates()
         populateTextFields()
 
@@ -95,7 +92,13 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
         AddressField.insertText(name + "\n" + street + "\n" + zipCity)
         let o1 = self.management?.openings_weekdays
         let o2 = self.management?.openings_weekends
-        openingsField.text.append("\n"+o1!+"\n"+o2!)
+        if let o1 = o1 {
+            openingsField.text.append("\n"+o1)
+        }
+        if let o2 = o2 {
+            openingsField.text.append("\n"+o2)
+        }
+        
         
     }
     
