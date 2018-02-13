@@ -35,39 +35,45 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func getManagementFromAuth(){
-        let defaults = UserDefaults.standard
-        let code: String? = defaults.string(forKey: "qr")
+        let code: String? = "ztiuohijopk"
         if code == nil {return}
-        let url : URL = URL(string:"https://thecodelabs.de:2530/management")!
-        
+        let url = "https://thecodelabs.de:2530/management"
+        var request = URLRequest(url: URL(string: url)!)
         //Setting the Header
-        var request = URLRequest(url: url)
+        
         request.httpMethod = "GET"
         request.setValue(code, forHTTPHeaderField: "auth")
         
-        // Setting up URLSession for Communication with REST-API
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-            
-            guard let data = data else { return }
-            
-            //Implement JSON decoding and parsing
-            do {
-                //Decode retrived data with JSONDecoder
-                let parsedManagement = try JSONDecoder().decode(Management.self, from: data)
-                
-                //Get back to the main queue
-                DispatchQueue.main.async {
-                    //print(articlesData)
-                    self.management = parsedManagement
+        let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                do{
+                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [Any]
+                    if (jsonObject?.isEmpty)!{
+                        return
+                    }
+                    if let json = jsonObject as? [[String: Any]] {
+                        for j in json {
+                            let place = j["place"] as! String
+                            let telefon = j["telefon"] as! String?
+                            let name = j["name"] as! String
+                            let postcode = j["postcode"] as! String
+                            let street = j["street"] as! String
+                            let id = j["id"] as! Int
+                            let mail = j["mail"] as! String?
+                            let m = Management(id: id, name: name, postcode: postcode, place: place, street: street, telefon: telefon, mail: mail, openings_weekdays: nil, openings_weekends: nil)
+                            DispatchQueue.main.async {
+                                self.management = m
+                            }
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
                 }
-            } catch let jsonError {
-                print(jsonError)
+            } else if let error = error {
+                print(error.localizedDescription)
             }
-            }.resume()
-        
+        }
+        session.resume()
     }
     
     func setButtonStates() {
