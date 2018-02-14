@@ -20,12 +20,13 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getManagementFromAuth(){m in
+        getManagementFromAuth() { m in
             self.management = m
+            DispatchQueue.main.async {
+                self.populateTextFields()
+                self.setButtonStates()
+            }
         }
-        setButtonStates()
-        populateTextFields()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,7 +76,7 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func setButtonStates() {
-        if self.management != nil{
+        if self.management != nil {
             if self.management?.mail == nil {
                 mailBtn.isEnabled=false
             }
@@ -86,21 +87,20 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func populateTextFields(){
-        AddressField.text = ""
-        let name : String = (self.management?.name)!
-        let street = (self.management?.street)!
-        let zipCity = (self.management?.place)!+" "+(self.management?.postcode)!
-        AddressField.insertText(name + "\n" + street + "\n" + zipCity)
-        let o1 = self.management?.openings_weekdays
-        let o2 = self.management?.openings_weekends
-        if let o1 = o1 {
-            openingsField.text.append("\n"+o1)
+        if let management = self.management {
+            AddressField.text = ""
+            let name : String = management.name
+            let street = management.street
+            let zipCity = management.place + " " + management.postcode
+            AddressField.insertText(name + "\n" + street + "\n" + zipCity)
+            
+            guard let o1 = management.openings_weekdays, let o2 = management.openings_weekends else {
+                return
+            }
+            
+            openingsField.text.append("\n" + o1)
+            openingsField.text.append("\n" + o2)
         }
-        if let o2 = o2 {
-            openingsField.text.append("\n"+o2)
-        }
-        
-        
     }
     
     @IBAction func call(_ sender: Any) {
