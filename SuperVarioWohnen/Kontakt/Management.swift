@@ -18,4 +18,5 @@ struct Management: Decodable {
     let mail : String?
     let openings_weekdays : String?
     let openings_weekends : String?
+    let website: String?
 }

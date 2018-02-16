@@ -15,14 +15,17 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBOutlet weak var callBtn: UIButton!
     @IBOutlet weak var mailBtn: UIButton!
+    @IBOutlet weak var websiteBtn: UIButton!
     @IBOutlet weak var AddressField: UITextView!
     @IBOutlet weak var openingsField: UITextView!
+    @IBOutlet weak var managementImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getManagementFromAuth() { m in
             self.management = m
             DispatchQueue.main.async {
+                self.setManagementImage()
                 self.populateTextFields()
                 self.setButtonStates()
             }
@@ -35,44 +38,38 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func getManagementFromAuth(completion:@escaping (Management)->()){
-        let code: String? = "ztiuohijopk"
-        if code == nil {return}
+        let code = try? getQrCode()
+        if let code = code {
         let url = "https://thecodelabs.de:2530/management"
         var request = URLRequest(url: URL(string: url)!)
-        //Setting the Header
         
+        //Setting the Header
         request.httpMethod = "GET"
         request.setValue(code, forHTTPHeaderField: "auth")
         
+        // Setting up the Session
         let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
-                do{
-                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [Any]
-                    if (jsonObject?.isEmpty)!{
-                        return
-                    }
-                    if let json = jsonObject as? [[String: Any]] {
-                        for j in json {
-                            let place = j["place"] as! String
-                            let telefon = j["telefon"] as! String?
-                            let name = j["name"] as! String
-                            let postcode = j["postcode"] as! String
-                            let street = j["street"] as! String
-                            let id = j["id"] as! Int
-                            let mail = j["mail"] as! String?
-                            let m = Management(id: id, name: name, postcode: postcode, place: place, street: street, telefon: telefon, mail: mail, openings_weekdays: nil, openings_weekends: nil)
-                            
-                            completion(m)
-                        }
-                    }
-                } catch let error as NSError {
-                    print(error.localizedDescription)
+                let m = try? JSONDecoder().decode([Management].self, from: data)
+                if let m = m{
+                    completion(m.first!)
                 }
-            } else if let error = error {
-                print(error.localizedDescription)
             }
         }
         session.resume()
+    }
+    }
+    
+    func setManagementImage(){
+        if self.management == nil {return}
+        let id: Int = self.management!.id
+        let url = "https://thecodelabs.de:2530/app/img/\(id).jpg"
+        if let image = loadImageFromURL(url){
+            self.managementImg.image = image
+        } else {
+            managementImg.isHidden = true
+        }
+        
     }
     
     func setButtonStates() {
@@ -91,10 +88,12 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
             AddressField.text = ""
             let name : String = management.name
             let street = management.street
-            let zipCity = management.place + " " + management.postcode
-            AddressField.insertText(name + "\n" + street + "\n" + zipCity)
-            
+            let zipCity = management.postcode + " " + management.place
+           
+            AddressField.text = name + "\n" + street + "\n" + zipCity + "\n"
+        
             guard let o1 = management.openings_weekdays, let o2 = management.openings_weekends else {
+                openingsField.isHidden=true;
                 return
             }
             
@@ -124,5 +123,20 @@ class KontakteViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func loadImageFromURL(_ string:String) -> UIImage? {
+        let url = URL(string: string)
+        let data = try? Data(contentsOf: url!) // I'm assuming the image links are working ;)
+        return UIImage(data: data!)
+    }
+    
+    @IBAction func didTapGoogle(sender: AnyObject) {
+        if let website = self.management?.website{
+            if let url = URL(string: "http://\(website)") {
+                UIApplication.shared.open(url, options: [:])
+            }
+        }
+        
     }
 }

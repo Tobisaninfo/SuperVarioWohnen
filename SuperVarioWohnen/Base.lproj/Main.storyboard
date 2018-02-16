@@ -731,17 +731,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-dB-Tlw">
+                                <rect key="frame" x="159" y="546" width="56" height="30"/>
+                                <state key="normal" title="Website"/>
+                                <connections>
+                                    <action selector="didTapGoogleWithSender:" destination="SG2-DC-qIp" eventType="touchUpInside" id="tig-OB-oiG"/>
+                                    <action selector="sendEmailWithSender:" destination="SG2-DC-qIp" eventType="touchUpInside" id="InK-37-BAW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="s7B-e1-vuQ" firstAttribute="leading" secondItem="V2J-e3-mD5" secondAttribute="leading" constant="50" id="B1E-Cj-UGL"/>
                             <constraint firstItem="UXo-ga-DM4" firstAttribute="centerX" secondItem="EaK-zz-Kcm" secondAttribute="centerX" id="B9c-Q0-Hk8"/>
                             <constraint firstItem="V2J-e3-mD5" firstAttribute="bottom" secondItem="UXo-ga-DM4" secondAttribute="bottom" constant="80" id="DPV-GY-vSc"/>
+                            <constraint firstItem="V2J-e3-mD5" firstAttribute="bottom" secondItem="H9D-dB-Tlw" secondAttribute="bottom" constant="42" id="GKX-06-Juq"/>
                             <constraint firstItem="dmn-LT-tK7" firstAttribute="top" secondItem="s7B-e1-vuQ" secondAttribute="bottom" constant="8" id="ICE-fs-TiK"/>
                             <constraint firstItem="UXo-ga-DM4" firstAttribute="top" secondItem="EaK-zz-Kcm" secondAttribute="bottom" constant="8" id="JxL-rF-Sg8"/>
                             <constraint firstItem="9Jm-lY-qAx" firstAttribute="top" secondItem="dmn-LT-tK7" secondAttribute="bottom" constant="8" id="Mfq-4w-CTK"/>
                             <constraint firstItem="V2J-e3-mD5" firstAttribute="trailing" secondItem="s7B-e1-vuQ" secondAttribute="trailing" constant="51" id="NGz-Wr-bq5"/>
                             <constraint firstItem="9Jm-lY-qAx" firstAttribute="centerX" secondItem="dmn-LT-tK7" secondAttribute="centerX" id="YGm-BH-lp0"/>
+                            <constraint firstItem="H9D-dB-Tlw" firstAttribute="top" secondItem="UXo-ga-DM4" secondAttribute="bottom" constant="8" id="e2j-zG-hgm"/>
+                            <constraint firstItem="H9D-dB-Tlw" firstAttribute="centerX" secondItem="V2J-e3-mD5" secondAttribute="centerX" id="ebw-4z-WMK"/>
                             <constraint firstItem="UXo-ga-DM4" firstAttribute="centerX" secondItem="V2J-e3-mD5" secondAttribute="centerX" id="k1X-MT-JZm"/>
                             <constraint firstItem="dmn-LT-tK7" firstAttribute="centerX" secondItem="s7B-e1-vuQ" secondAttribute="centerX" id="mLC-El-1zy"/>
                             <constraint firstItem="s7B-e1-vuQ" firstAttribute="top" secondItem="V2J-e3-mD5" secondAttribute="top" id="ry5-rv-3bo"/>
@@ -754,7 +765,9 @@
                         <outlet property="AddressField" destination="dmn-LT-tK7" id="3In-ad-WHN"/>
                         <outlet property="callBtn" destination="EaK-zz-Kcm" id="b3t-Fs-6Ue"/>
                         <outlet property="mailBtn" destination="UXo-ga-DM4" id="CnH-yh-zXA"/>
+                        <outlet property="managementImg" destination="s7B-e1-vuQ" id="0oG-9U-Xke"/>
                         <outlet property="openingsField" destination="9Jm-lY-qAx" id="XXL-p8-UhZ"/>
+                        <outlet property="websiteBtn" destination="H9D-dB-Tlw" id="VKd-XB-bFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m02-og-BuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
