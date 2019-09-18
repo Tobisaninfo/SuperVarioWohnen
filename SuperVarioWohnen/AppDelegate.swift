@@ -13,11 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    {
+        do {
+            let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("qr.txt")
+            try "ztiuohijopk".write(to: url, atomically: true, encoding: .utf8)
+        } catch {
+            print(error)
+        }
+        
         return true
     }
+    
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -40,7 +48,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+func getQrCode() throws -> String? {
+    let url = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("qr.txt")
+    if let code = try? String(contentsOf: url) {
+        return code
+    }
+    
+    return nil
+}
+
+let SUPERVARIO_BASE_URL = "https://thecodelabs.de:2530"
+
+func getUrl(endPoint: String) -> URL? {
+    return URL(string: SUPERVARIO_BASE_URL)?.appendingPathComponent(endPoint)
+}
